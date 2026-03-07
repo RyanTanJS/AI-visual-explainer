@@ -1,0 +1,851 @@
+[
+  {
+    "product_id": "CC-001",
+    "product_name": "Apex Sapphire Travel Card",
+    "category": "Credit Card",
+    "subcategory": "Travel",
+    "annual_fee": 250.0,
+    "interest_rate": 19.99,
+    "min_credit_score": 700,
+    "min_annual_income": 35000,
+    "risk_level": "Low",
+    "target_customer": [
+      "frequent traveller",
+      "business professional",
+      "high spender"
+    ],
+    "benefits": [
+      "Airport lounge access worldwide",
+      "2x points on travel and dining",
+      "No foreign transaction fees",
+      "$200 annual travel credit",
+      "Comprehensive travel insurance"
+    ],
+    "cashback_rate": 0.02,
+    "welcome_bonus_points": 50000,
+    "related_products": [
+      "CC-002",
+      "SA-001"
+    ],
+    "description": "The Apex Sapphire Travel Card is designed for the modern frequent traveller. With access to over 1,000 airport lounges globally, zero foreign transaction fees, and a generous 2x points multiplier on all travel and dining purchases, this card transforms every journey into a rewarding experience. The $200 annual travel credit effectively offsets most of the annual fee for regular travellers.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 35000,
+      "min_credit_score": 700,
+      "employment_status": [
+        "employed",
+        "self-employed"
+      ]
+    },
+    "customer_sentiment_summary": "Customers consistently praise the lounge access and travel insurance. Common complaints relate to the annual fee being high for infrequent travellers.",
+    "last_updated": "2025-01-15"
+  },
+  {
+    "product_id": "CC-002",
+    "product_name": "Apex Explorer Card",
+    "category": "Credit Card",
+    "subcategory": "Travel",
+    "annual_fee": 95.0,
+    "interest_rate": 21.49,
+    "min_credit_score": 650,
+    "min_annual_income": 25000,
+    "risk_level": "Low",
+    "target_customer": [
+      "occasional traveller",
+      "young professional",
+      "first-time credit card user"
+    ],
+    "benefits": [
+      "No foreign transaction fees",
+      "1.5x points on all purchases",
+      "Basic travel insurance",
+      "$50 annual travel credit",
+      "Free additional card for a travel companion"
+    ],
+    "cashback_rate": 0.015,
+    "welcome_bonus_points": 20000,
+    "related_products": [
+      "CC-001",
+      "CC-003"
+    ],
+    "description": "The Apex Explorer Card is the ideal entry point for travellers who want solid rewards without the premium price tag. With no foreign transaction fees, a 1.5x points multiplier on every purchase, and a $50 annual travel credit, this card suits anyone who takes a few trips a year and wants their spending to count toward something meaningful.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 25000,
+      "min_credit_score": 650,
+      "employment_status": [
+        "employed",
+        "self-employed",
+        "student"
+      ]
+    },
+    "customer_sentiment_summary": "Customers appreciate the low annual fee relative to benefits. Some wish the lounge access was included, but most acknowledge this is a mid-tier product.",
+    "last_updated": "2025-01-15"
+  },
+  {
+    "product_id": "CC-003",
+    "product_name": "Apex Voyager Premium Card",
+    "category": "Credit Card",
+    "subcategory": "Travel",
+    "annual_fee": 450.0,
+    "interest_rate": 18.49,
+    "min_credit_score": 750,
+    "min_annual_income": 60000,
+    "risk_level": "Low",
+    "target_customer": [
+      "luxury traveller",
+      "executive",
+      "high-net-worth individual"
+    ],
+    "benefits": [
+      "Unlimited airport lounge access for cardholder + 2 guests",
+      "3x points on travel, dining, and entertainment",
+      "Complimentary hotel elite status",
+      "$500 annual travel credit",
+      "Comprehensive travel and purchase insurance",
+      "Dedicated concierge service"
+    ],
+    "cashback_rate": 0.03,
+    "welcome_bonus_points": 80000,
+    "related_products": [
+      "CC-001",
+      "WM-001"
+    ],
+    "description": "The Apex Voyager Premium Card is our flagship travel card for those who demand the very best. With unlimited lounge access for you and two guests, complimentary hotel elite status, a $500 annual travel credit, and a dedicated concierge service, every trip becomes an elevated experience. The 3x points on travel, dining, and entertainment ensure your rewards accumulate rapidly.",
+    "eligibility_criteria": {
+      "min_age": 21,
+      "min_annual_income": 60000,
+      "min_credit_score": 750,
+      "employment_status": [
+        "employed",
+        "self-employed"
+      ]
+    },
+    "customer_sentiment_summary": "Highly rated by frequent international travellers. The concierge service and hotel status are frequently cited as standout benefits. Some customers feel the annual fee is justified only if travelling monthly or more.",
+    "last_updated": "2025-02-01"
+  },
+  {
+    "product_id": "CC-004",
+    "product_name": "Apex Everyday Rewards Card",
+    "category": "Credit Card",
+    "subcategory": "Cashback",
+    "annual_fee": 0,
+    "interest_rate": 22.99,
+    "min_credit_score": 600,
+    "min_annual_income": 18000,
+    "risk_level": "Low",
+    "target_customer": [
+      "everyday shopper",
+      "budget-conscious consumer",
+      "family"
+    ],
+    "benefits": [
+      "1% cashback on all purchases",
+      "3% cashback at supermarkets",
+      "No annual fee",
+      "Contactless payments",
+      "Real-time spending notifications"
+    ],
+    "cashback_rate": 0.01,
+    "welcome_bonus_points": 5000,
+    "related_products": [
+      "CC-005",
+      "SA-002"
+    ],
+    "description": "The Apex Everyday Rewards Card puts money back in your pocket on purchases you are already making. With 1% cashback on everything and a boosted 3% at supermarkets, this no-annual-fee card is perfect for daily spending. Real-time notifications help you stay on top of your budget without any effort.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 18000,
+      "min_credit_score": 600,
+      "employment_status": [
+        "employed",
+        "self-employed",
+        "part-time"
+      ]
+    },
+    "customer_sentiment_summary": "Very popular with families and budget-conscious customers. The supermarket cashback boost is frequently mentioned as a standout feature. Some wish the base cashback rate were higher.",
+    "last_updated": "2025-01-20"
+  },
+  {
+    "product_id": "CC-005",
+    "product_name": "Apex Student Cashback Card",
+    "category": "Credit Card",
+    "subcategory": "Cashback",
+    "annual_fee": 0,
+    "interest_rate": 24.99,
+    "min_credit_score": 0,
+    "min_annual_income": 0,
+    "risk_level": "Medium",
+    "target_customer": [
+      "student",
+      "first-time credit user",
+      "young adult"
+    ],
+    "benefits": [
+      "1% cashback on all purchases",
+      "5% cashback on textbooks and subscriptions",
+      "No annual fee",
+      "Credit limit starts at \u00c2\u00a3500",
+      "Free credit score monitoring",
+      "Financial literacy resources"
+    ],
+    "cashback_rate": 0.01,
+    "welcome_bonus_points": 1000,
+    "related_products": [
+      "CC-004",
+      "SA-002"
+    ],
+    "description": "The Apex Student Cashback Card is designed to help students build credit responsibly while earning rewards on everyday purchases. With no income requirement, no annual fee, and a manageable starting credit limit, it is the perfect first credit card. The 5% cashback on textbooks and subscriptions like streaming services makes student spending more rewarding.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 0,
+      "min_credit_score": 0,
+      "employment_status": [
+        "student"
+      ]
+    },
+    "customer_sentiment_summary": "Students love the low barrier to entry and textbook cashback. Parents appreciate the credit-building aspect and manageable limits. Some students wish the credit limit could increase faster.",
+    "last_updated": "2025-01-10"
+  },
+  {
+    "product_id": "CC-006",
+    "product_name": "Apex Platinum Cashback Card",
+    "category": "Credit Card",
+    "subcategory": "Cashback",
+    "annual_fee": 75.0,
+    "interest_rate": 19.99,
+    "min_credit_score": 700,
+    "min_annual_income": 40000,
+    "risk_level": "Low",
+    "target_customer": [
+      "high spender",
+      "professional",
+      "rewards maximiser"
+    ],
+    "benefits": [
+      "2% cashback on all purchases",
+      "5% cashback on dining and entertainment",
+      "Quarterly cashback bonus for spending over \u00c2\u00a33,000/quarter",
+      "Purchase protection insurance",
+      "Extended warranty on purchases"
+    ],
+    "cashback_rate": 0.02,
+    "welcome_bonus_points": 30000,
+    "related_products": [
+      "CC-004",
+      "CC-001"
+    ],
+    "description": "The Apex Platinum Cashback Card is for those who want maximum returns on their spending without the complexity of points systems. A flat 2% cashback on everything, boosted to 5% on dining and entertainment, means high spenders can earn hundreds back each year. The quarterly spending bonus rewards consistent use, and the \u00c2\u00a375 annual fee is easily offset by the enhanced cashback rates.",
+    "eligibility_criteria": {
+      "min_age": 21,
+      "min_annual_income": 40000,
+      "min_credit_score": 700,
+      "employment_status": [
+        "employed",
+        "self-employed"
+      ]
+    },
+    "customer_sentiment_summary": "High earners praise the simplicity and generous cashback rates. The dining boost is very popular with professionals who entertain clients. Some feel the annual fee should be waived for high spenders.",
+    "last_updated": "2025-02-01"
+  },
+  {
+    "product_id": "MG-001",
+    "product_name": "Apex First Home Mortgage",
+    "category": "Mortgage",
+    "subcategory": "First-Time Buyer",
+    "annual_fee": 0,
+    "interest_rate": 4.29,
+    "min_credit_score": 620,
+    "min_annual_income": 25000,
+    "risk_level": "Medium",
+    "target_customer": [
+      "first-time buyer",
+      "young professional",
+      "couple"
+    ],
+    "benefits": [
+      "95% LTV available (5% deposit)",
+      "No arrangement fee for first-time buyers",
+      "Fixed rate for 2 or 5 years",
+      "Free property valuation",
+      "Dedicated first-time buyer advisor",
+      "Overpayment allowance up to 10% per year"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "MG-002",
+      "SA-001"
+    ],
+    "description": "The Apex First Home Mortgage is built specifically for first-time buyers taking their biggest financial step. With the option to put down as little as 5%, no arrangement fee, and a free property valuation, we have removed as many barriers as possible. A dedicated first-time buyer advisor guides you through every stage of the process, from application to completion.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 25000,
+      "min_credit_score": 620,
+      "employment_status": [
+        "employed",
+        "self-employed"
+      ]
+    },
+    "customer_sentiment_summary": "First-time buyers praise the low deposit requirement and dedicated advisor support. The application process is rated as straightforward. Some customers note the interest rate is slightly higher than competitors offering lower LTV products.",
+    "last_updated": "2025-01-25"
+  },
+  {
+    "product_id": "MG-002",
+    "product_name": "Apex Buy-to-Let Mortgage",
+    "category": "Mortgage",
+    "subcategory": "Buy-to-Let",
+    "annual_fee": 995.0,
+    "interest_rate": 5.19,
+    "min_credit_score": 680,
+    "min_annual_income": 30000,
+    "risk_level": "High",
+    "target_customer": [
+      "property investor",
+      "landlord",
+      "portfolio builder"
+    ],
+    "benefits": [
+      "75% LTV (25% deposit required)",
+      "Interest-only option available",
+      "Fixed rate for 2 or 5 years",
+      "Portfolio landlord options for 4+ properties",
+      "Rental income can be used for affordability"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "MG-001",
+      "MG-003"
+    ],
+    "description": "The Apex Buy-to-Let Mortgage is designed for investors looking to build or expand their property portfolio. With interest-only options to maximise cash flow, competitive fixed rates, and dedicated support for portfolio landlords managing multiple properties, this product helps you grow your investment strategy with confidence.",
+    "eligibility_criteria": {
+      "min_age": 21,
+      "min_annual_income": 30000,
+      "min_credit_score": 680,
+      "employment_status": [
+        "employed",
+        "self-employed"
+      ]
+    },
+    "customer_sentiment_summary": "Landlords appreciate the interest-only option and portfolio support. The arrangement fee is considered standard for the market. Some investors wish the LTV were higher to reduce upfront capital requirements.",
+    "last_updated": "2025-01-20"
+  },
+  {
+    "product_id": "MG-003",
+    "product_name": "Apex Remortgage Deal",
+    "category": "Mortgage",
+    "subcategory": "Remortgage",
+    "annual_fee": 0,
+    "interest_rate": 3.99,
+    "min_credit_score": 650,
+    "min_annual_income": 25000,
+    "risk_level": "Low",
+    "target_customer": [
+      "existing homeowner",
+      "rate switcher",
+      "equity releaser"
+    ],
+    "benefits": [
+      "No arrangement fee",
+      "Free legal fees covered by Apex",
+      "Fixed rate for 2, 3, or 5 years",
+      "Cashback of \u00c2\u00a3500 on completion",
+      "Overpayment allowance up to 10% per year",
+      "Quick online application process"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "MG-001",
+      "MG-004"
+    ],
+    "description": "The Apex Remortgage Deal helps existing homeowners save money by switching to a better rate. With no arrangement fee, free legal fees, and a \u00c2\u00a3500 cashback on completion, switching to Apex is designed to be both cost-effective and hassle-free. Our streamlined online application gets you a decision in principle within minutes.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 25000,
+      "min_credit_score": 650,
+      "employment_status": [
+        "employed",
+        "self-employed"
+      ]
+    },
+    "customer_sentiment_summary": "Customers switching from other lenders praise the simplicity and cost savings. The free legal fees are a strong draw. Some note that the rates are most competitive at lower LTV ratios.",
+    "last_updated": "2025-02-05"
+  },
+  {
+    "product_id": "MG-004",
+    "product_name": "Apex Green Home Mortgage",
+    "category": "Mortgage",
+    "subcategory": "Green",
+    "annual_fee": 0,
+    "interest_rate": 3.79,
+    "min_credit_score": 620,
+    "min_annual_income": 25000,
+    "risk_level": "Low",
+    "target_customer": [
+      "eco-conscious buyer",
+      "energy-efficient home buyer",
+      "first-time buyer"
+    ],
+    "benefits": [
+      "Discounted rate for EPC A or B rated homes",
+      "Additional borrowing for green improvements",
+      "No arrangement fee",
+      "95% LTV available",
+      "Cashback of \u00c2\u00a3250 for solar panel installation"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "MG-001",
+      "PL-003"
+    ],
+    "description": "The Apex Green Home Mortgage rewards eco-conscious buyers with a discounted interest rate on energy-efficient properties. If your home has an EPC rating of A or B, you qualify for our lowest mortgage rate. You can also borrow additional funds specifically for green home improvements like insulation, heat pumps, or solar panels.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 25000,
+      "min_credit_score": 620,
+      "employment_status": [
+        "employed",
+        "self-employed"
+      ]
+    },
+    "customer_sentiment_summary": "Eco-conscious buyers love the rate discount and additional borrowing for green improvements. The solar panel cashback is a unique perk. Some customers wish the discount applied to EPC C rated homes as well.",
+    "last_updated": "2025-02-10"
+  },
+  {
+    "product_id": "PL-001",
+    "product_name": "Apex Personal Loan",
+    "category": "Personal Loan",
+    "subcategory": "Standard",
+    "annual_fee": 0,
+    "interest_rate": 6.99,
+    "min_credit_score": 620,
+    "min_annual_income": 15000,
+    "risk_level": "Medium",
+    "target_customer": [
+      "general borrower",
+      "home improver",
+      "car buyer"
+    ],
+    "benefits": [
+      "Borrow \u00c2\u00a31,000 to \u00c2\u00a325,000",
+      "Fixed monthly repayments",
+      "Terms from 1 to 7 years",
+      "No early repayment fees",
+      "Instant decision online",
+      "Funds in your account within 24 hours"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "PL-002",
+      "PL-003"
+    ],
+    "description": "The Apex Personal Loan offers straightforward borrowing with fixed monthly repayments so you always know what you owe. Whether you are buying a car, renovating your home, or covering an unexpected expense, borrow between \u00c2\u00a31,000 and \u00c2\u00a325,000 with no early repayment fees. Apply online and get an instant decision with funds in your account within 24 hours.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 15000,
+      "min_credit_score": 620,
+      "employment_status": [
+        "employed",
+        "self-employed",
+        "part-time"
+      ]
+    },
+    "customer_sentiment_summary": "Customers value the quick online process and no early repayment fees. The fixed rate provides budgeting certainty. Some wish the rate were more competitive for smaller loan amounts.",
+    "last_updated": "2025-01-18"
+  },
+  {
+    "product_id": "PL-002",
+    "product_name": "Apex Debt Consolidation Loan",
+    "category": "Personal Loan",
+    "subcategory": "Debt Consolidation",
+    "annual_fee": 0,
+    "interest_rate": 5.49,
+    "min_credit_score": 580,
+    "min_annual_income": 15000,
+    "risk_level": "Medium",
+    "target_customer": [
+      "debt manager",
+      "multiple credit user",
+      "budget improver"
+    ],
+    "benefits": [
+      "Lower rate than most credit cards",
+      "Single monthly payment replaces multiple debts",
+      "Borrow \u00c2\u00a32,000 to \u00c2\u00a330,000",
+      "Free debt assessment consultation",
+      "No early repayment fees",
+      "Terms from 2 to 7 years"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "PL-001",
+      "CC-004"
+    ],
+    "description": "The Apex Debt Consolidation Loan simplifies your finances by combining multiple debts into one manageable monthly payment at a lower interest rate. If you are juggling credit cards, store cards, or other loans, consolidating with Apex could reduce your total monthly payments and help you become debt-free sooner. Includes a free consultation with a debt assessment specialist.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 15000,
+      "min_credit_score": 580,
+      "employment_status": [
+        "employed",
+        "self-employed",
+        "part-time"
+      ]
+    },
+    "customer_sentiment_summary": "Customers frequently report feeling less stressed after consolidating. The free debt assessment is highly valued. Some note that approval can take longer than the standard personal loan due to additional affordability checks.",
+    "last_updated": "2025-01-22"
+  },
+  {
+    "product_id": "PL-003",
+    "product_name": "Apex Green Home Improvement Loan",
+    "category": "Personal Loan",
+    "subcategory": "Green",
+    "annual_fee": 0,
+    "interest_rate": 4.99,
+    "min_credit_score": 600,
+    "min_annual_income": 18000,
+    "risk_level": "Low",
+    "target_customer": [
+      "homeowner",
+      "eco-conscious consumer",
+      "energy saver"
+    ],
+    "benefits": [
+      "Discounted rate for green improvements",
+      "Borrow \u00c2\u00a31,000 to \u00c2\u00a315,000",
+      "Terms from 1 to 5 years",
+      "Accepted improvements: solar panels, insulation, heat pumps, EV chargers, double glazing",
+      "No early repayment fees",
+      "Partner discounts with approved installers"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "PL-001",
+      "MG-004"
+    ],
+    "description": "The Apex Green Home Improvement Loan offers a discounted rate for homeowners investing in energy efficiency. Whether you are installing solar panels, upgrading insulation, fitting a heat pump, or adding an EV charger, this loan makes green improvements more affordable. Partner discounts with our network of approved installers can save you even more.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 18000,
+      "min_credit_score": 600,
+      "employment_status": [
+        "employed",
+        "self-employed",
+        "part-time"
+      ]
+    },
+    "customer_sentiment_summary": "Customers appreciate the low rate and approved installer network. The loan is seen as genuinely helpful for reducing energy bills long-term. Some customers wish the maximum borrowing amount were higher for larger projects.",
+    "last_updated": "2025-01-28"
+  },
+  {
+    "product_id": "PL-004",
+    "product_name": "Apex Car Finance Loan",
+    "category": "Personal Loan",
+    "subcategory": "Car Finance",
+    "annual_fee": 0,
+    "interest_rate": 6.49,
+    "min_credit_score": 600,
+    "min_annual_income": 15000,
+    "risk_level": "Medium",
+    "target_customer": [
+      "car buyer",
+      "young professional",
+      "commuter"
+    ],
+    "benefits": [
+      "Borrow \u00c2\u00a33,000 to \u00c2\u00a335,000",
+      "Fixed monthly repayments",
+      "Terms from 1 to 5 years",
+      "No early repayment fees",
+      "You own the car from day one",
+      "Discounted rate for electric vehicles"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "PL-001",
+      "PL-003"
+    ],
+    "description": "The Apex Car Finance Loan gives you the freedom to buy any car from any dealer with the confidence of fixed monthly repayments. Unlike PCP or hire purchase, you own the vehicle from day one with no balloon payment at the end. Electric vehicle buyers receive an additional 0.5% rate discount as part of our commitment to sustainable transport.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 15000,
+      "min_credit_score": 600,
+      "employment_status": [
+        "employed",
+        "self-employed",
+        "part-time"
+      ]
+    },
+    "customer_sentiment_summary": "Customers value the ownership model over PCP alternatives. The EV discount is praised by environmentally conscious buyers. The application process is rated as quick and straightforward.",
+    "last_updated": "2025-02-01"
+  },
+  {
+    "product_id": "SA-001",
+    "product_name": "Apex Easy Access ISA",
+    "category": "Savings",
+    "subcategory": "ISA",
+    "annual_fee": 0,
+    "interest_rate": 4.1,
+    "min_credit_score": 0,
+    "min_annual_income": 0,
+    "risk_level": "Low",
+    "target_customer": [
+      "saver",
+      "tax-conscious investor",
+      "emergency fund builder"
+    ],
+    "benefits": [
+      "Tax-free interest up to ISA allowance",
+      "Instant access to your money",
+      "No minimum deposit",
+      "Manage online and via mobile app",
+      "Annual ISA allowance: \u00c2\u00a320,000"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "SA-002",
+      "SA-003"
+    ],
+    "description": "The Apex Easy Access ISA offers a competitive tax-free interest rate with complete flexibility. Your money is available whenever you need it with no notice period and no penalties for withdrawals. With no minimum deposit required, it is ideal for building an emergency fund or saving toward a goal while sheltering your interest from tax.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 0,
+      "min_credit_score": 0,
+      "employment_status": [
+        "employed",
+        "self-employed",
+        "student",
+        "retired",
+        "part-time"
+      ]
+    },
+    "customer_sentiment_summary": "Savers love the flexibility and competitive rate. The mobile app for managing the account is rated highly. Some wish the rate were higher to compete with fixed-term alternatives.",
+    "last_updated": "2025-02-15"
+  },
+  {
+    "product_id": "SA-002",
+    "product_name": "Apex Fixed Rate Bond",
+    "category": "Savings",
+    "subcategory": "Fixed Rate",
+    "annual_fee": 0,
+    "interest_rate": 4.65,
+    "min_credit_score": 0,
+    "min_annual_income": 0,
+    "risk_level": "Low",
+    "target_customer": [
+      "long-term saver",
+      "retirement planner",
+      "risk-averse investor"
+    ],
+    "benefits": [
+      "Guaranteed fixed rate for 1, 2, or 3 years",
+      "Higher rate than easy access accounts",
+      "Minimum deposit \u00c2\u00a31,000",
+      "FSCS protected up to \u00c2\u00a385,000",
+      "Interest paid monthly or annually"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "SA-001",
+      "SA-003"
+    ],
+    "description": "The Apex Fixed Rate Bond locks in a guaranteed interest rate for your chosen term, giving you certainty about your returns. With rates higher than easy access accounts, this product suits savers who can commit their money for 1, 2, or 3 years. Your savings are protected by the Financial Services Compensation Scheme up to \u00c2\u00a385,000.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 0,
+      "min_credit_score": 0,
+      "employment_status": [
+        "employed",
+        "self-employed",
+        "student",
+        "retired",
+        "part-time"
+      ]
+    },
+    "customer_sentiment_summary": "Savers appreciate the rate certainty and FSCS protection. The monthly interest option is popular with retirees. The main complaint is the lack of access to funds during the fixed term.",
+    "last_updated": "2025-02-15"
+  },
+  {
+    "product_id": "SA-003",
+    "product_name": "Apex Stocks & Shares ISA",
+    "category": "Savings",
+    "subcategory": "Investment ISA",
+    "annual_fee": 45.0,
+    "interest_rate": 0,
+    "min_credit_score": 0,
+    "min_annual_income": 0,
+    "risk_level": "High",
+    "target_customer": [
+      "growth investor",
+      "long-term planner",
+      "tax-efficient investor"
+    ],
+    "benefits": [
+      "Tax-free gains and dividends",
+      "Choose from 500+ funds and ETFs",
+      "Automated monthly investing option",
+      "Risk-rated portfolio options for beginners",
+      "Annual ISA allowance: \u00c2\u00a320,000",
+      "Low platform fee of 0.25%"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "SA-001",
+      "WM-001"
+    ],
+    "description": "The Apex Stocks & Shares ISA lets you invest in the stock market while sheltering your gains and dividends from tax. Choose from over 500 funds and ETFs, or select a risk-rated portfolio if you prefer a hands-off approach. Automated monthly investing helps you build wealth gradually through pound-cost averaging. Capital at risk \u00e2\u20ac\u201d the value of investments can go down as well as up.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 0,
+      "min_credit_score": 0,
+      "employment_status": [
+        "employed",
+        "self-employed",
+        "student",
+        "retired",
+        "part-time"
+      ]
+    },
+    "customer_sentiment_summary": "Investors appreciate the wide fund selection and low platform fee. The risk-rated portfolios are popular with first-time investors. Some experienced investors wish there were more individual stock options.",
+    "last_updated": "2025-02-10"
+  },
+  {
+    "product_id": "WM-001",
+    "product_name": "Apex Wealth Management Account",
+    "category": "Savings",
+    "subcategory": "Wealth Management",
+    "annual_fee": 500.0,
+    "interest_rate": 0,
+    "min_credit_score": 0,
+    "min_annual_income": 75000,
+    "risk_level": "High",
+    "target_customer": [
+      "high-net-worth individual",
+      "executive",
+      "inheritance planner"
+    ],
+    "benefits": [
+      "Dedicated wealth manager",
+      "Bespoke investment portfolio",
+      "Tax optimisation strategy",
+      "Quarterly portfolio review meetings",
+      "Access to exclusive investment opportunities",
+      "Estate and inheritance planning"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "SA-003",
+      "CC-003"
+    ],
+    "description": "The Apex Wealth Management Account provides a fully personalised investment and financial planning service for clients with complex needs. Your dedicated wealth manager builds a bespoke portfolio aligned with your goals, risk tolerance, and tax situation. Quarterly review meetings ensure your strategy evolves with your circumstances, and you gain access to exclusive investment opportunities not available to standard clients.",
+    "eligibility_criteria": {
+      "min_age": 21,
+      "min_annual_income": 75000,
+      "min_credit_score": 0,
+      "employment_status": [
+        "employed",
+        "self-employed"
+      ]
+    },
+    "customer_sentiment_summary": "Clients praise the personal relationship with their wealth manager and the quality of advice. The exclusive investment opportunities are a strong differentiator. Some feel the minimum income requirement excludes clients who may have significant assets but lower income.",
+    "last_updated": "2025-02-01"
+  },
+  {
+    "product_id": "SA-004",
+    "product_name": "Apex Junior ISA",
+    "category": "Savings",
+    "subcategory": "Junior ISA",
+    "annual_fee": 0,
+    "interest_rate": 3.9,
+    "min_credit_score": 0,
+    "min_annual_income": 0,
+    "risk_level": "Low",
+    "target_customer": [
+      "parent",
+      "grandparent",
+      "family saver"
+    ],
+    "benefits": [
+      "Tax-free savings for children under 18",
+      "Annual allowance of \u00c2\u00a39,000",
+      "Cash or stocks & shares option",
+      "Family and friends can contribute",
+      "Child gains access at 18",
+      "No minimum deposit"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "SA-001",
+      "SA-002"
+    ],
+    "description": "The Apex Junior ISA helps families save for their children's future in a tax-efficient wrapper. Whether you choose the cash option for guaranteed returns or the stocks & shares option for potential growth, every penny is sheltered from tax. Family members and friends can contribute up to the annual allowance of \u00c2\u00a39,000, making it a perfect gift for birthdays and milestones.",
+    "eligibility_criteria": {
+      "min_age": 0,
+      "min_annual_income": 0,
+      "min_credit_score": 0,
+      "employment_status": [
+        "employed",
+        "self-employed",
+        "student",
+        "retired",
+        "part-time"
+      ]
+    },
+    "customer_sentiment_summary": "Parents and grandparents love the ability for multiple family members to contribute. The tax-free wrapper is seen as a significant advantage for long-term saving. Some parents wish withdrawals were possible before the child turns 18 in case of emergencies.",
+    "last_updated": "2025-01-30"
+  },
+  {
+    "product_id": "CC-007",
+    "product_name": "Apex Balance Transfer Card",
+    "category": "Credit Card",
+    "subcategory": "Balance Transfer",
+    "annual_fee": 0,
+    "interest_rate": 23.99,
+    "min_credit_score": 650,
+    "min_annual_income": 18000,
+    "risk_level": "Low",
+    "target_customer": [
+      "debt manager",
+      "rate switcher",
+      "budget improver"
+    ],
+    "benefits": [
+      "0% interest on balance transfers for 18 months",
+      "2.9% balance transfer fee",
+      "No annual fee",
+      "Minimum transfer \u00c2\u00a3500",
+      "Manage transfers in the Apex app"
+    ],
+    "cashback_rate": 0,
+    "welcome_bonus_points": 0,
+    "related_products": [
+      "PL-002",
+      "CC-004"
+    ],
+    "description": "The Apex Balance Transfer Card gives you breathing room to pay off existing credit card debt by offering 0% interest on balance transfers for 18 months. With a competitive 2.9% transfer fee and no annual fee, you can focus on paying down your balance without interest charges eating into your repayments. Ideal for anyone looking to take control of their credit card debt.",
+    "eligibility_criteria": {
+      "min_age": 18,
+      "min_annual_income": 18000,
+      "min_credit_score": 650,
+      "employment_status": [
+        "employed",
+        "self-employed",
+        "part-time"
+      ]
+    },
+    "customer_sentiment_summary": "Customers praise the lengthy 0% period and simple transfer process via the app. The transfer fee is considered competitive. Some wish the 0% period also applied to new purchases.",
+    "last_updated": "2025-02-05"
+  }
+]

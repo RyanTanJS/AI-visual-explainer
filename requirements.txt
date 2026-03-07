@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+llama-index
+llama-index-vector-stores-chroma
+llama-index-embeddings-google-genai
+llama-index-llms-gemini
+langchain
+langgraph
+langchain-google-genai
+chromadb
+google-genai
+pandas
+numpy
+scikit-learn
+pydantic
+python-dotenv
+aiohttp

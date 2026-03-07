@@ -1,0 +1,272 @@
+{
+  "scene": 1,
+  "query": "Hi! I travel about 2-3 times a month for work, but I also want a card that saves me money on everyday spending. What are my options?",
+  "steps": [
+    {
+      "type": "action",
+      "tool": "rag_search",
+      "params": {
+        "query": "credit card for frequent travel and cashback on everyday spending"
+      },
+      "t": 0
+    },
+    {
+      "type": "observation",
+      "result": "Apex Sapphire Travel Card (Credit Card, Travel, £250/yr): The Apex Sapphire Travel Card is designed for the modern frequent traveller. With access to over 1,000 airport lounges globally, zero foreign transaction fees, and a generous 2x points multiplier on all travel and dining purchases, this card transforms every journey into a rewarding experience. Airport lounge access worldwide | 2x points on travel and dining | No foreign transaction fees | $200 annual travel credit | Comprehensive travel insurance\nApex Platinum Cashback Card (Credit Card, Cashback, £75/yr): The Apex Platinum Cashback Card is for those who want maximum returns on their spending without the complexity of points systems. A flat 2% cashback on everything, boosted to 5% on dining and entertainment, means high spenders can earn hundreds back each year. 2% cashback on all purchases | 5% cashback on dining and entertainment | Quarterly cashback bonus | Purchase protection insurance\nApex Everyday Rewards Card (Credit Card, Cashback, £0/yr): The Apex Everyday Rewards Card puts money back in your pocket on purchases you are already making. With 1% cashback on everything and a boosted 3% at supermarkets, this no-annual-fee card is perfect for daily spending. 1% cashback on all purchases | 3% cashback at supermarkets | No annual fee | Contactless payments | Real-time spending notifications\nApex Voyager Premium Card (Credit Card, Travel, £450/yr): The Apex Voyager Premium Card is our flagship travel card for those who demand the very best. With unlimited lounge access for you and two guests, complimentary hotel elite status, a $500 annual travel credit, and a dedicated concierge service, every trip becomes an elevated experience. Unlimited airport lounge access | 3x points on travel, dining, and entertainment | Complimentary hotel elite status | $500 annual travel credit\nApex Explorer Card (Credit Card, Travel, £95/yr): The Apex Explorer Card is the ideal entry point for travellers who want solid rewards without the premium price tag. No foreign transaction fees | 1.5x points on all purchases | Basic travel insurance | $50 annual travel credit",
+      "t": 800
+    },
+    {
+      "type": "answer",
+      "content": "Great question! Since you need both travel perks and everyday savings, here are some options that cover both:\n\n**For Travel:**\n*   **Apex Sapphire Travel Card** (£250/yr) — Airport lounge access, 2x points on travel & dining, no foreign transaction fees, and a $200 travel credit. Best all-round travel card for frequent flyers.\n\n**For Everyday Cashback:**\n*   **Apex Platinum Cashback Card** (£75/yr) — 2% cashback on everything, 5% on dining & entertainment. Great for high spenders.\n*   **Apex Everyday Rewards Card** (£0/yr) — 1% cashback on everything, 3% at supermarkets. No annual fee makes it risk-free.\n\nMany customers in your situation pair a travel card with a cashback card — use the Sapphire for flights and dining abroad, and the Everyday Rewards for groceries and daily spending at home. That way you maximise both travel perks and cashback.",
+      "t": 1600
+    }
+  ],
+  "query_vector": {
+    "id": "query",
+    "label": "Query",
+    "category": "query",
+    "x": 0.21050000000000000,
+    "y": 0.06200000000000000,
+    "z": -0.00200000000000000
+  },
+  "matched_vectors": [
+    {
+      "product_id": "CC-001",
+      "label": "Apex Sapphire Travel Card",
+      "category": "Credit Card",
+      "subcategory": "Travel",
+      "score": 0.412
+    },
+    {
+      "product_id": "CC-006",
+      "label": "Apex Platinum Cashback Card",
+      "category": "Credit Card",
+      "subcategory": "Cashback",
+      "score": 0.387
+    },
+    {
+      "product_id": "CC-004",
+      "label": "Apex Everyday Rewards Card",
+      "category": "Credit Card",
+      "subcategory": "Cashback",
+      "score": 0.371
+    },
+    {
+      "product_id": "CC-003",
+      "label": "Apex Voyager Premium Card",
+      "category": "Credit Card",
+      "subcategory": "Travel",
+      "score": 0.365
+    },
+    {
+      "product_id": "CC-002",
+      "label": "Apex Explorer Card",
+      "category": "Credit Card",
+      "subcategory": "Travel",
+      "score": 0.348
+    }
+  ],
+  "all_vectors": [
+    {
+      "id": "d77ebf5f-5567-4070-875c-18bcc00acea1",
+      "product_id": "CC-001",
+      "label": "Apex Sapphire Travel Card",
+      "category": "Credit Card",
+      "subcategory": "Travel",
+      "x": 0.2184534143414855,
+      "y": 0.09703411972404195,
+      "z": 0.01666618785426889
+    },
+    {
+      "id": "9e0810eb-f145-4f91-97ad-4f5dd6ca8967",
+      "product_id": "CC-002",
+      "label": "Apex Explorer Card",
+      "category": "Credit Card",
+      "subcategory": "Travel",
+      "x": 0.23780108374633274,
+      "y": 0.07360217595179752,
+      "z": -0.013148014906348987
+    },
+    {
+      "id": "68ca1c1a-e49a-4eba-bb80-aecc0ee19dc6",
+      "product_id": "CC-003",
+      "label": "Apex Voyager Premium Card",
+      "category": "Credit Card",
+      "subcategory": "Travel",
+      "x": 0.21600189147978277,
+      "y": 0.10197827504923217,
+      "z": -0.0030137582196413156
+    },
+    {
+      "id": "68cb97fc-f4e0-400f-93cb-7d83b1556ad6",
+      "product_id": "CC-004",
+      "label": "Apex Everyday Rewards Card",
+      "category": "Credit Card",
+      "subcategory": "Cashback",
+      "x": 0.21081636852149102,
+      "y": 0.03939897045097244,
+      "z": -0.00264186555260666
+    },
+    {
+      "id": "9afaf880-4ac9-4d35-bbb9-469a1e0ae944",
+      "product_id": "CC-005",
+      "label": "Apex Student Cashback Card",
+      "category": "Credit Card",
+      "subcategory": "Cashback",
+      "x": 0.19106140991818726,
+      "y": 0.03182307602155585,
+      "z": -0.019803668877795028
+    },
+    {
+      "id": "b58dbc4f-2d32-4396-b06f-f76933471ed3",
+      "product_id": "CC-006",
+      "label": "Apex Platinum Cashback Card",
+      "category": "Credit Card",
+      "subcategory": "Cashback",
+      "x": 0.20432009228892184,
+      "y": 0.039177860975884764,
+      "z": -0.018583983511593818
+    },
+    {
+      "id": "b4689ccd-7753-4f46-9f51-60ab627052ea",
+      "product_id": "MG-001",
+      "label": "Apex First Home Mortgage",
+      "category": "Mortgage",
+      "subcategory": "First-Time Buyer",
+      "x": -0.09088903366993005,
+      "y": -0.08502417456337959,
+      "z": -0.19841089952733215
+    },
+    {
+      "id": "ffb37d18-dae0-49ea-b52d-7e0435787d1a",
+      "product_id": "MG-002",
+      "label": "Apex Buy-to-Let Mortgage",
+      "category": "Mortgage",
+      "subcategory": "Buy-to-Let",
+      "x": -0.11822969909342972,
+      "y": -0.05904504147244476,
+      "z": -0.19085545019014483
+    },
+    {
+      "id": "a56d239a-3203-4f9d-a337-193910305d88",
+      "product_id": "MG-003",
+      "label": "Apex Remortgage Deal",
+      "category": "Mortgage",
+      "subcategory": "Remortgage",
+      "x": -0.058766270344408456,
+      "y": -0.12480511819515658,
+      "z": -0.1746668851930675
+    },
+    {
+      "id": "4b92cb7e-d5c2-4d8a-8f85-0879d700eee0",
+      "product_id": "MG-004",
+      "label": "Apex Green Home Mortgage",
+      "category": "Mortgage",
+      "subcategory": "Green",
+      "x": -0.07483273100371454,
+      "y": -0.15942045124587134,
+      "z": -0.1715712225325648
+    },
+    {
+      "id": "d9d33916-337c-4d61-b70a-c79744038e6a",
+      "product_id": "PL-001",
+      "label": "Apex Personal Loan",
+      "category": "Personal Loan",
+      "subcategory": "Standard",
+      "x": -0.04414145578148886,
+      "y": -0.15720931206674477,
+      "z": 0.1772615030085058
+    },
+    {
+      "id": "854f1d64-3327-44ad-a3cf-044acd9e63f0",
+      "product_id": "PL-002",
+      "label": "Apex Debt Consolidation Loan",
+      "category": "Personal Loan",
+      "subcategory": "Debt Consolidation",
+      "x": -0.02212682149628699,
+      "y": -0.19238125018892543,
+      "z": 0.13585689009575252
+    },
+    {
+      "id": "4ecacf8d-a81f-473d-a413-7454f7fc0a15",
+      "product_id": "PL-003",
+      "label": "Apex Green Home Improvement Loan",
+      "category": "Personal Loan",
+      "subcategory": "Green",
+      "x": -0.07432187921601499,
+      "y": -0.2107581725128197,
+      "z": 0.06941411560832174
+    },
+    {
+      "id": "3a9a5723-d6c1-4b9a-ae50-3e8faf7be81a",
+      "product_id": "PL-004",
+      "label": "Apex Car Finance Loan",
+      "category": "Personal Loan",
+      "subcategory": "Car Finance",
+      "x": -0.05088745302555374,
+      "y": -0.1980280238950342,
+      "z": 0.1908876448349081
+    },
+    {
+      "id": "b4833e69-e22d-4993-a567-610e0fca0128",
+      "product_id": "SA-001",
+      "label": "Apex Easy Access ISA",
+      "category": "Savings",
+      "subcategory": "ISA",
+      "x": -0.18259603166275498,
+      "y": 0.17258337818307584,
+      "z": 0.0771118677331327
+    },
+    {
+      "id": "6af10b9b-bdd4-435a-b367-cebf25f2fc16",
+      "product_id": "SA-002",
+      "label": "Apex Fixed Rate Bond",
+      "category": "Savings",
+      "subcategory": "Fixed Rate",
+      "x": -0.16815366752838273,
+      "y": 0.10541402513209013,
+      "z": 0.028152849991115062
+    },
+    {
+      "id": "e81329f2-fc82-436e-9401-608c4c326e81",
+      "product_id": "SA-003",
+      "label": "Apex Stocks & Shares ISA",
+      "category": "Savings",
+      "subcategory": "Investment ISA",
+      "x": -0.19137166296864622,
+      "y": 0.21065334536557145,
+      "z": 0.043444096158416545
+    },
+    {
+      "id": "37ecaac6-e936-4d9e-9ec4-064ca135dd47",
+      "product_id": "WM-001",
+      "label": "Apex Wealth Management Account",
+      "category": "Savings",
+      "subcategory": "Wealth Management",
+      "x": -0.1270196470071988,
+      "y": 0.1547520774593291,
+      "z": -0.014032463725450176
+    },
+    {
+      "id": "e339f128-e805-429b-b65e-11f9cf2281e7",
+      "product_id": "SA-004",
+      "label": "Apex Junior ISA",
+      "category": "Savings",
+      "subcategory": "Junior ISA",
+      "x": -0.1880281361964495,
+      "y": 0.209061477042296,
+      "z": 0.04003569426019716
+    },
+    {
+      "id": "fa8c6ee0-aed5-4c85-80ca-23617b77c0d4",
+      "product_id": "CC-007",
+      "label": "Apex Balance Transfer Card",
+      "category": "Credit Card",
+      "subcategory": "Balance Transfer",
+      "x": 0.11291022869805849,
+      "y": -0.04880723721547078,
+      "z": 0.027897362691926535
+    }
+  ],
+  "final_answer": "Great question! Since you need both travel perks and everyday savings, here are some options that cover both:\n\n**For Travel:**\n*   **Apex Sapphire Travel Card** (£250/yr) — Airport lounge access, 2x points on travel & dining, no foreign transaction fees, and a $200 travel credit. Best all-round travel card for frequent flyers.\n\n**For Everyday Cashback:**\n*   **Apex Platinum Cashback Card** (£75/yr) — 2% cashback on everything, 5% on dining & entertainment. Great for high spenders.\n*   **Apex Everyday Rewards Card** (£0/yr) — 1% cashback on everything, 3% at supermarkets. No annual fee makes it risk-free.\n\nMany customers in your situation pair a travel card with a cashback card — use the Sapphire for flights and dining abroad, and the Everyday Rewards for groceries and daily spending at home. That way you maximise both travel perks and cashback."
+}
