@@ -32,3 +32,6 @@ Thumbs.db
 # Build output
 frontend/dist/
 frontend/build/
+
+# Claude
+.claude/
