@@ -246,6 +246,8 @@ function AutoStopOrbitControls() {
       autoRotate
       autoRotateSpeed={0.5}
       zoomSpeed={0.1}
+      minDistance={3}
+      maxDistance={10}
       onStart={handleInteraction}
     />
   )

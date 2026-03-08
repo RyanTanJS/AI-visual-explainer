@@ -282,16 +282,16 @@ function getLayout(isMobile) {
       orchestrator:          { x: 0, y: 160 },
       product_agent:         { x: 220, y: 0 },
       eligibility_agent:     { x: 220, y: 160 },
-      recommendation_agent:  { x: 220, y: 320 },
+      recommendation_agent:  { x: 220, y: 350 },
       synthesiser:           { x: 460, y: 160 },
     }
   }
   return {
-    orchestrator:          { x: 0, y: 180 },
+    orchestrator:          { x: 0, y: 200 },
     product_agent:         { x: 300, y: 0 },
-    eligibility_agent:     { x: 300, y: 180 },
-    recommendation_agent:  { x: 300, y: 360 },
-    synthesiser:           { x: 640, y: 180 },
+    eligibility_agent:     { x: 300, y: 200 },
+    recommendation_agent:  { x: 300, y: 420 },
+    synthesiser:           { x: 640, y: 200 },
   }
 }
 

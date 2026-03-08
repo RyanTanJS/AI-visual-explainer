@@ -68,7 +68,7 @@ const EXPLAINERS = {
         text: 'Single-agent systems hit limits on complex tasks — context windows overflow, tool lists get unwieldy, and reasoning degrades. Splitting into specialists keeps each agent focused, accurate, and maintainable. It\'s how production AI systems like coding assistants and customer support bots are built.',
       },
     ],
-    next: 'You\'ve seen the full stack — from vector search to multi-agent orchestration',
+    next: 'We\'ve reached the end of our story. Look out for more of Alex\'s Journey!',
   },
 }
 

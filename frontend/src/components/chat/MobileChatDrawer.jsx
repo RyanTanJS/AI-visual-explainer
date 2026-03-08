@@ -189,6 +189,21 @@ function MobileBottomBar() {
             </button>
           )}
         </div>
+
+        {/* Scroll down indicator — mobile only, after scene completes */}
+        {sceneCompleted[currentScene] && (
+          <motion.div
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="flex items-center justify-center gap-1.5 pt-1.5 border-t border-[#2a2d3a]/60"
+          >
+            <span className="text-[10px] text-[#64748b]">Scroll down for next scene</span>
+            <svg className="w-3 h-3 text-[#64748b] animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </motion.div>
+        )}
       </div>
     </div>
   )
