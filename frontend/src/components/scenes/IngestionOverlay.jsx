@@ -33,7 +33,7 @@ function ProductCard({ product, showChunks }) {
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
-      className="bg-[#1a1d27] border border-[#2a2d3a] rounded-lg p-4 mb-3"
+      className="bg-[#1a1d27] border border-[#2a2d3a] rounded-lg p-3 md:p-4 mb-2 md:mb-3"
     >
       <div className="flex items-center gap-2 mb-2">
         <div className="w-2 h-2 rounded-full bg-indigo-400" />
@@ -55,7 +55,8 @@ function ProductCard({ product, showChunks }) {
 
       <div className="text-[11px] text-[#94a3b8] space-y-1">
         <p>{product.category} / {product.subcategory} / {`£${product.annual_fee}/yr`}</p>
-        <p className="leading-relaxed">
+        {/* Full description on desktop, truncated on mobile */}
+        <p className="leading-relaxed md:line-clamp-none line-clamp-3">
           {showChunks
             ? sentences.map((sentence, i) => (
                 <motion.span
@@ -74,10 +75,11 @@ function ProductCard({ product, showChunks }) {
               ))
             : product.description}
         </p>
+        {/* Benefits — show max 3 on mobile */}
         {product.benefits?.length > 0 && (
           <div className="flex flex-wrap gap-1 mt-2">
-            {product.benefits.map((b) => {
-              const chunkIdx = sentences.length // benefits are the last "chunk"
+            {product.benefits.slice(0, typeof window !== 'undefined' && window.innerWidth < 768 ? 3 : product.benefits.length).map((b) => {
+              const chunkIdx = sentences.length
               return (
                 <motion.span
                   key={b}
@@ -97,13 +99,13 @@ function ProductCard({ product, showChunks }) {
         )}
       </div>
 
-      {/* Chunk legend */}
+      {/* Chunk legend — hide on mobile */}
       {showChunks && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: sentences.length * 0.3 + 0.3 }}
-          className="mt-3 pt-2 border-t border-[#2a2d3a] flex flex-wrap gap-2"
+          className="mt-3 pt-2 border-t border-[#2a2d3a] flex-wrap gap-2 hidden md:flex"
         >
           {sentences.map((_, i) => (
             <span key={i} className="text-[9px] text-[#64748b] flex items-center gap-1">
@@ -184,6 +186,59 @@ const STEP_LABELS = {
   place: 'Done — store next product',
 }
 
+const STEP_INFO = {
+  chunk: {
+    title: 'What is Chunking?',
+    color: 'amber',
+    content:
+      'Large documents are split into smaller, overlapping pieces called "chunks." This ensures each chunk fits within the embedding model\'s token limit and captures a focused topic. LlamaIndex\'s SentenceSplitter breaks text at sentence boundaries to preserve meaning.',
+  },
+  embed: {
+    title: 'What is Embedding?',
+    color: 'emerald',
+    content:
+      'Each chunk is passed through Google\'s Gemini embedding model, which outputs a 3072-dimensional vector — a list of 3,072 numbers that encode the chunk\'s semantic meaning. Similar meanings produce similar vectors, even if the words are completely different.',
+  },
+  place: {
+    title: 'Storing & Visualising',
+    color: 'indigo',
+    content:
+      'The vector is stored in ChromaDB, a vector database optimised for similarity search. To visualise it in 3D, PCA (Principal Component Analysis) compresses the 3,072 dimensions down to just 3 while preserving relative distances between points.',
+  },
+}
+
+function StepInfoPanel({ ingestStep }) {
+  const info = STEP_INFO[ingestStep]
+  if (!info) return null
+
+  const colorMap = {
+    amber: { bg: 'bg-amber-500/10', border: 'border-amber-500/30', title: 'text-amber-400', accent: 'bg-amber-500' },
+    emerald: { bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', title: 'text-emerald-400', accent: 'bg-emerald-500' },
+    indigo: { bg: 'bg-indigo-500/10', border: 'border-indigo-500/30', title: 'text-indigo-400', accent: 'bg-indigo-500' },
+  }
+  const c = colorMap[info.color]
+
+  return (
+    <motion.div
+      key={ingestStep}
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 20 }}
+      className={`${c.bg} ${c.border} border rounded-lg p-3 flex-1 min-w-0`}
+    >
+      <div className="flex items-center gap-2 mb-1.5">
+        <div className={`w-1 h-4 ${c.accent} rounded-full`} />
+        <h4 className={`${c.title} text-xs font-semibold uppercase tracking-wide`}>
+          {info.title}
+        </h4>
+      </div>
+      <p className="text-[#cbd5e1] text-xs leading-relaxed">
+        {info.content}
+      </p>
+    </motion.div>
+  )
+}
+
 export default function IngestionOverlay() {
   const phase = useSceneStore((s) => s.phase)
   const ingestStep = useSceneStore((s) => s.ingestStep)
@@ -210,28 +265,64 @@ export default function IngestionOverlay() {
   const nextProduct = nextVec ? PRODUCTS_MAP[nextVec.product_id] : null
 
   return (
-    <div className="absolute top-0 left-0 w-[340px] h-full z-10 flex flex-col p-4 overflow-y-auto
-                    bg-gradient-to-r from-[#0f1117] via-[#0f1117]/95 to-transparent">
-      <div className="mb-4">
+    <div className="absolute top-0 left-0 h-full z-10 p-3 md:p-4 overflow-y-auto
+                    bg-gradient-to-r from-[#0f1117] via-[#0f1117]/95 to-transparent"
+         style={{ maxWidth: 'min(90%, 640px)' }}
+    >
+      <div className="max-w-[340px] mb-2 md:mb-4">
         <h3 className="text-white text-sm font-semibold mb-1">
           Step 1: Building the Vector Database
         </h3>
-        <p className="text-[#64748b] text-xs leading-relaxed">
+        <p className="text-[#64748b] text-xs leading-relaxed hidden md:block">
           Before the AI can search, every product must be converted into a vector
           (a list of numbers) and stored. Watch how it works:
         </p>
       </div>
 
-      {/* Animation steps */}
+      {/* Animation steps — each row pairs content with its info panel */}
       <AnimatePresence mode="wait">
         {ingestStep && currentProduct && (
-          <div key={`ingest-${ingestingProductId}`} className="flex-1 overflow-y-auto pr-1">
-            <ProductCard
-              product={currentProduct}
-              showChunks={['chunk', 'embed', 'place'].includes(ingestStep)}
-            />
-            {['embed', 'place'].includes(ingestStep) && <EmbeddingView />}
-            {ingestStep === 'place' && <PlaceView />}
+          <div key={`ingest-${ingestingProductId}`}>
+            {/* Product card + chunk info side by side */}
+            <div className="flex flex-col sm:flex-row gap-2 md:gap-3 items-start mb-2 md:mb-3">
+              <div className="w-full sm:w-[340px] shrink-0">
+                <ProductCard
+                  product={currentProduct}
+                  showChunks={['chunk', 'embed', 'place'].includes(ingestStep)}
+                />
+              </div>
+              <AnimatePresence mode="wait">
+                {ingestStep === 'chunk' && (
+                  <StepInfoPanel ingestStep="chunk" />
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Embedding + embed info side by side */}
+            {['embed', 'place'].includes(ingestStep) && (
+              <div className="flex flex-col sm:flex-row gap-2 md:gap-3 items-start mb-2 md:mb-3">
+                <div className="w-full sm:w-[340px] shrink-0">
+                  <EmbeddingView />
+                </div>
+                <AnimatePresence mode="wait">
+                  {ingestStep === 'embed' && (
+                    <StepInfoPanel ingestStep="embed" />
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
+
+            {/* Place + place info side by side */}
+            {ingestStep === 'place' && (
+              <div className="flex flex-col sm:flex-row gap-2 md:gap-3 items-start mb-2 md:mb-3">
+                <div className="w-full sm:w-[340px] shrink-0">
+                  <PlaceView />
+                </div>
+                <AnimatePresence mode="wait">
+                  <StepInfoPanel ingestStep="place" />
+                </AnimatePresence>
+              </div>
+            )}
           </div>
         )}
       </AnimatePresence>
@@ -248,8 +339,7 @@ export default function IngestionOverlay() {
       )}
 
       {/* Action buttons */}
-      <div className="mt-auto pt-3 border-t border-[#2a2d3a] space-y-2">
-        {/* Next / Store 1 button */}
+      <div className="max-w-[340px] pt-2 md:pt-3 border-t border-[#2a2d3a] space-y-2">
         {isAnimating ? (
           <button
             onClick={advanceIngest}

@@ -1,10 +1,12 @@
 import { create } from 'zustand'
 import scene1Data from '../data/traces/scene1.json'
 import scene2Data from '../data/traces/scene2.json'
+import scene3Data from '../data/traces/scene3.json'
 
 const traces = {
   1: scene1Data,
   2: scene2Data,
+  3: scene3Data,
 }
 
 const useSceneStore = create((set, get) => ({
@@ -22,6 +24,7 @@ const useSceneStore = create((set, get) => ({
   ingestProductIndex: 0, // which product in the list we're on
   queryEmbedStep: null, // 'card' | 'chunk' | 'embed' | 'place' | null
   queryVectorVisible: false, // whether query vector diamond is shown in 3D
+  reactStepIndex: -1, // which step in the ReAct flowchart is active (-1 = not started)
   sceneCompleted: {}, // { 1: true, 2: true, ... }
 
   loadScene: (sceneId) => {
@@ -40,6 +43,7 @@ const useSceneStore = create((set, get) => ({
       ingestProductIndex: 0,
       queryEmbedStep: null,
       queryVectorVisible: false,
+      reactStepIndex: -1,
     })
   },
 
@@ -115,18 +119,53 @@ const useSceneStore = create((set, get) => ({
     set({ phase: 'ready' })
   },
 
-  // Play starts with query embedding, then trace replay
+  // Play — scene 1 does query embedding first, others play directly
   play: () => {
-    const { trace, isPlaying } = get()
+    const { trace, isPlaying, currentScene } = get()
     if (!trace || isPlaying) return
-    set({
-      isPlaying: true,
-      steps: [],
-      currentStepIndex: -1,
-      phase: 'query-embed',
-      queryEmbedStep: 'card',
-      queryVectorVisible: false,
-    })
+
+    if (currentScene === 1) {
+      set({
+        isPlaying: true,
+        steps: [],
+        currentStepIndex: -1,
+        phase: 'query-embed',
+        queryEmbedStep: 'card',
+        queryVectorVisible: false,
+      })
+    } else {
+      // Scene 2+: click-through flowchart mode — show first step immediately
+      set({
+        isPlaying: true,
+        steps: [trace.steps[0]],
+        currentStepIndex: 0,
+        phase: 'playing',
+        reactStepIndex: 0,
+      })
+    }
+  },
+
+  // Advance through ReAct flowchart steps one click at a time
+  advanceReact: () => {
+    const { trace, reactStepIndex } = get()
+    if (!trace) return
+
+    const traceSteps = trace.steps
+    const nextIdx = reactStepIndex + 1
+
+    if (nextIdx < traceSteps.length) {
+      set({
+        reactStepIndex: nextIdx,
+        steps: traceSteps.slice(0, nextIdx + 1),
+        currentStepIndex: nextIdx,
+      })
+    } else {
+      // All steps shown — mark complete
+      set((s) => ({
+        isPlaying: false,
+        sceneCompleted: { ...s.sceneCompleted, [s.currentScene]: true },
+      }))
+    }
   },
 
   // Advance query embedding: card → chunk → embed → place → start trace
@@ -179,6 +218,7 @@ const useSceneStore = create((set, get) => ({
       ingestProductIndex: 0,
       queryEmbedStep: null,
       queryVectorVisible: false,
+      reactStepIndex: -1,
     })
   },
 

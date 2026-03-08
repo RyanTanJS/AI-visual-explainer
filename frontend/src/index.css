@@ -12,3 +12,17 @@ body {
   height: 100vh;
   width: 100vw;
 }
+
+/* React Flow dark theme overrides */
+.react-flow__background {
+  background: #0f1117 !important;
+}
+.react-flow__minimap {
+  display: none;
+}
+.react-flow__controls {
+  display: none;
+}
+.react-flow__edge-path {
+  stroke-linecap: round;
+}

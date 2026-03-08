@@ -1,15 +1,111 @@
+import { motion, AnimatePresence } from 'framer-motion'
 import useSceneStore from '../../stores/sceneStore'
 import MessageBubble from './MessageBubble'
 
+// Determine processing status text from current state
+function getProcessingStatus(phase, ingestStep, queryEmbedStep, currentScene, reactStepIndex, steps, sceneCompleted) {
+  // Scene 1 — ingestion phase
+  if (currentScene === 1 && phase === 'ingest') {
+    if (!ingestStep) return { text: 'Waiting to build vector database...', color: '#64748b' }
+    if (ingestStep === 'card') return { text: 'Reading product document...', color: '#a5b4fc' }
+    if (ingestStep === 'chunk') return { text: 'Chunking text with SentenceSplitter...', color: '#fbbf24' }
+    if (ingestStep === 'embed') return { text: 'Generating embedding vector...', color: '#6ee7b7' }
+    if (ingestStep === 'place') return { text: 'Storing vector in ChromaDB...', color: '#a5b4fc' }
+  }
+
+  // Scene 1 — query embedding
+  if (currentScene === 1 && phase === 'query-embed') {
+    if (queryEmbedStep === 'card') return { text: 'Preparing query for embedding...', color: '#f9a8d4' }
+    if (queryEmbedStep === 'chunk') return { text: 'Chunking query text...', color: '#fbbf24' }
+    if (queryEmbedStep === 'embed') return { text: 'Embedding query into vector space...', color: '#6ee7b7' }
+    if (queryEmbedStep === 'place') return { text: 'Placing query vector for similarity search...', color: '#f9a8d4' }
+  }
+
+  // Scene 1 — playing (trace replay)
+  if (currentScene === 1 && phase === 'playing') {
+    const hasObs = steps.some((s) => s.type === 'observation')
+    const hasAnswer = steps.some((s) => s.type === 'answer')
+    if (hasAnswer) return null
+    if (hasObs) return { text: 'Generating response from retrieved documents...', color: '#a5b4fc' }
+    return { text: 'Searching vector database...', color: '#6ee7b7' }
+  }
+
+  // Scene 2 — ReAct flowchart
+  if (currentScene === 2 && reactStepIndex >= 0 && !sceneCompleted[currentScene]) {
+    const traceSteps = steps
+    const activeStep = traceSteps[reactStepIndex]
+    if (!activeStep) return null
+    if (activeStep.type === 'thought') return { text: 'Thinking — planning next step...', color: '#a5b4fc' }
+    if (activeStep.type === 'action' && activeStep.tool === 'rag_search') return { text: 'Calling tool: rag_search()...', color: '#fcd34d' }
+    if (activeStep.type === 'action' && activeStep.tool === 'calculator') return { text: 'Calling tool: calculator()...', color: '#fcd34d' }
+    if (activeStep.type === 'action') return { text: `Calling tool: ${activeStep.tool}()...`, color: '#fcd34d' }
+    if (activeStep.type === 'observation') return { text: 'Reading tool result...', color: '#6ee7b7' }
+    if (activeStep.type === 'answer') return { text: 'Composing final answer...', color: '#f9a8d4' }
+  }
+
+  // Scene 3 — Multi-agent orchestration
+  if (currentScene === 3 && reactStepIndex >= 0 && !sceneCompleted[currentScene]) {
+    const traceSteps = steps
+    const activeStep = traceSteps[reactStepIndex]
+    if (!activeStep) return null
+    if (activeStep.type === 'thought') return { text: 'Orchestrator analysing query...', color: '#a5b4fc' }
+    if (activeStep.type === 'routing_decision') return { text: 'Routing to specialised agents...', color: '#818cf8' }
+    if (activeStep.type === 'edges_activated') return { text: 'Passing context to all agents...', color: '#818cf8' }
+    if (activeStep.type === 'agent_working') return { text: `${activeStep.agent.replace('_', ' ')} processing...`, color: '#fcd34d' }
+    if (activeStep.type === 'agent_output') return { text: `${activeStep.agent.replace('_', ' ')} complete`, color: '#6ee7b7' }
+    if (activeStep.type === 'answer') return { text: 'Synthesising final response...', color: '#f9a8d4' }
+  }
+
+  return null
+}
+
+function ProcessingIndicator({ status }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      className="flex justify-start"
+    >
+      <div className="flex items-center gap-3 bg-[#2a2d3a] rounded-2xl rounded-bl-md px-4 py-3 max-w-[85%]">
+        {/* Spinning circle */}
+        <svg
+          className="w-4 h-4 shrink-0 animate-spin"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <circle
+            cx="12" cy="12" r="10"
+            stroke="#2a2d3a"
+            strokeWidth="3"
+          />
+          <path
+            d="M12 2a10 10 0 0 1 10 10"
+            stroke={status.color}
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+        </svg>
+        <span className="text-xs" style={{ color: status.color }}>
+          {status.text}
+        </span>
+      </div>
+    </motion.div>
+  )
+}
+
 export default function ChatPanel() {
-  const { trace, steps, isPlaying, play, reset, phase, queryEmbedStep, advanceQueryEmbed } = useSceneStore()
+  const { trace, steps, isPlaying, play, reset, phase, ingestStep, queryEmbedStep, advanceQueryEmbed, currentScene, reactStepIndex, sceneCompleted } = useSceneStore()
 
   const query = trace?.query || ''
   const answerStep = steps.find((s) => s.type === 'answer')
   const isQueryEmbed = phase === 'query-embed'
+  const isReactMode = currentScene >= 2 && reactStepIndex >= 0
+
+  const processingStatus = getProcessingStatus(phase, ingestStep, queryEmbedStep, currentScene, reactStepIndex, steps, sceneCompleted)
 
   return (
-    <div className="w-[40%] flex flex-col border-r border-[#2a2d3a] bg-[#1a1d27]">
+    <div className="w-full h-full flex flex-col border-r border-[#2a2d3a] bg-[#1a1d27]">
       {/* Chat header */}
       <div className="px-4 py-3 border-b border-[#2a2d3a]">
         <p className="text-sm font-medium text-white">Alex's Conversation</p>
@@ -19,6 +115,14 @@ export default function ChatPanel() {
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {query && <MessageBubble sender="alex" text={query} />}
+
+        {/* Processing indicator */}
+        <AnimatePresence mode="wait">
+          {processingStatus && !answerStep && (
+            <ProcessingIndicator key={processingStatus.text} status={processingStatus} />
+          )}
+        </AnimatePresence>
+
         {answerStep && <MessageBubble sender="ai" text={answerStep.content} />}
       </div>
 
@@ -35,6 +139,10 @@ export default function ChatPanel() {
             {queryEmbedStep === 'embed' && 'Next: Place in vector space'}
             {queryEmbedStep === 'place' && 'Start search'}
           </button>
+        ) : isReactMode ? (
+          <div className="flex-1 text-center text-xs text-[#64748b] py-2">
+            Use the flowchart controls to step through &rarr;
+          </div>
         ) : (
           <button
             onClick={play}

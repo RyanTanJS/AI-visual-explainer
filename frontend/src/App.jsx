@@ -1,15 +1,17 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import useSceneStore from './stores/sceneStore'
 import Header from './components/layout/Header'
-import ChatPanel from './components/chat/ChatPanel'
+import MobileChatDrawer from './components/chat/MobileChatDrawer'
 import VectorSpace from './components/scenes/VectorSpace'
 import ReActPanel from './components/scenes/ReActPanel'
+import MultiAgentGraph from './components/scenes/MultiAgentGraph'
 import SceneExplainer from './components/scenes/SceneExplainer'
+import TitleScreen from './components/scenes/TitleScreen'
 import { motion } from 'framer-motion'
 
 function SceneHeader({ number, title, active }) {
   return (
-    <div className="flex items-center gap-3 px-6 py-2 border-b border-[#2a2d3a] bg-[#1a1d27]/80 shrink-0">
+    <div className="flex items-center gap-2 md:gap-3 px-3 md:px-6 py-2 border-b border-[#2a2d3a] bg-[#1a1d27]/80 shrink-0">
       <span className={`text-xs font-mono px-2 py-0.5 rounded ${
         active ? 'bg-indigo-500/20 text-indigo-300' : 'bg-[#2a2d3a] text-[#64748b]'
       }`}>
@@ -54,10 +56,28 @@ function App() {
   const currentScene = useSceneStore((s) => s.currentScene)
   const sceneCompleted = useSceneStore((s) => s.sceneCompleted)
 
+  const scene1Ref = useRef(null)
   const scene2Ref = useRef(null)
+  const scene3Ref = useRef(null)
+  const [introPassed, setIntroPassed] = useState(false)
 
+  // Load scene 1 when its section enters the viewport (after scrolling past intro)
+  const scene1Loaded = useRef(false)
   useEffect(() => {
-    loadScene(1)
+    if (!scene1Ref.current || scene1Loaded.current) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !scene1Loaded.current) {
+          scene1Loaded.current = true
+          setIntroPassed(true)
+          loadScene(1)
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(scene1Ref.current)
+    return () => observer.disconnect()
   }, [loadScene])
 
   // Load scene 2 when its section enters the viewport
@@ -78,6 +98,24 @@ function App() {
     return () => observer.disconnect()
   }, [sceneCompleted[1], loadScene])
 
+  // Load scene 3 when its section enters the viewport
+  const scene3Loaded = useRef(false)
+  useEffect(() => {
+    if (!sceneCompleted[2] || !scene3Ref.current || scene3Loaded.current) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !scene3Loaded.current) {
+          scene3Loaded.current = true
+          loadScene(3)
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(scene3Ref.current)
+    return () => observer.disconnect()
+  }, [sceneCompleted[2], loadScene])
+
   const scene1Done = sceneCompleted[1]
 
   return (
@@ -87,18 +125,25 @@ function App() {
         <Header />
       </div>
 
+      {/* Title + Intro */}
+      <TitleScreen />
+
       {/* Scene 1 */}
-      <section className="h-[calc(100vh-49px)] flex flex-col relative">
+      <section ref={scene1Ref} className="h-[calc(100vh-49px)] flex flex-col relative">
         <SceneHeader number={1} title="RAG & Vector Search" active={currentScene === 1} />
-        {currentScene === 1 ? (
-          <div className="flex flex-1 overflow-hidden">
-            <ChatPanel />
-            <div className="w-[60%] relative bg-[#0f1117]">
+        {introPassed && currentScene === 1 ? (
+          <div className="flex flex-1 overflow-hidden relative">
+            <MobileChatDrawer />
+            <div className="w-full md:w-[60%] relative bg-[#0f1117]">
               <VectorSpace />
             </div>
           </div>
-        ) : (
+        ) : scene1Done ? (
           <SceneComplete number={1} title="RAG & Vector Search" />
+        ) : (
+          <div className="flex-1 flex items-center justify-center bg-[#0f1117]">
+            <p className="text-[#64748b] text-sm">Scroll here to begin Scene 1</p>
+          </div>
         )}
         {scene1Done && currentScene === 1 && <ScrollIndicator />}
       </section>
@@ -112,9 +157,9 @@ function App() {
           <section ref={scene2Ref} className="h-[calc(100vh-49px)] flex flex-col relative">
             <SceneHeader number={2} title="ReAct & Tool Calling" active={currentScene === 2} />
             {currentScene === 2 ? (
-              <div className="flex flex-1 overflow-hidden">
-                <ChatPanel />
-                <div className="w-[60%] relative bg-[#0f1117]">
+              <div className="flex flex-1 overflow-hidden relative">
+                <MobileChatDrawer />
+                <div className="w-full md:w-[60%] relative bg-[#0f1117]">
                   <ReActPanel />
                 </div>
               </div>
@@ -123,7 +168,33 @@ function App() {
                 <p className="text-[#64748b] text-sm">Scroll here to begin Scene 2</p>
               </div>
             )}
+            {sceneCompleted[2] && currentScene === 2 && <ScrollIndicator />}
           </section>
+
+          {/* Explainer after Scene 2 */}
+          {sceneCompleted[2] && (
+            <>
+              <SceneExplainer sceneId={2} />
+
+              {/* Scene 3 */}
+              <section ref={scene3Ref} className="h-[calc(100vh-49px)] flex flex-col relative">
+                <SceneHeader number={3} title="Multi-Agent Orchestration" active={currentScene === 3} />
+                {currentScene === 3 ? (
+                  <div className="flex flex-1 overflow-hidden relative">
+                    <MobileChatDrawer />
+                    <div className="w-full md:w-[60%] relative bg-[#0f1117]">
+                      <MultiAgentGraph />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex-1 flex items-center justify-center bg-[#0f1117]">
+                    <p className="text-[#64748b] text-sm">Scroll here to begin Scene 3</p>
+                  </div>
+                )}
+                {sceneCompleted[3] && currentScene === 3 && <ScrollIndicator />}
+              </section>
+            </>
+          )}
         </>
       )}
     </div>

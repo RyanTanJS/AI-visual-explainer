@@ -125,7 +125,7 @@ function QueryVector({ point }) {
       </mesh>
       <Billboard position={[0, 0.2, 0]} renderOrder={999}>
         <Text
-          fontSize={0.07}
+          fontSize={0.1}
           color="#ec4899"
           anchorX="center"
           renderOrder={999}
@@ -336,7 +336,7 @@ export default function VectorSpace() {
 
   return (
     <div className="w-full h-full relative" ref={containerRef}>
-      <Canvas camera={{ position: [2.5, 1.5, 2.5], fov: 50 }}>
+      <Canvas camera={{ position: [4.5, 3, 4.5], fov: 55 }}>
         <Scene3D onHover={handleHover} onUnhover={handleUnhover} />
       </Canvas>
 
@@ -352,7 +352,7 @@ export default function VectorSpace() {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.15 }}
             className="absolute z-20 pointer-events-none bg-[#1a1d27]/95 border border-[#2a2d3a]
-                       rounded-lg p-3 text-xs max-w-[220px] shadow-xl"
+                       rounded-lg p-3 text-xs max-w-[min(220px,85vw)] shadow-xl"
             style={{ left: tooltip.x + 12, top: tooltip.y - 8 }}
           >
             <div className="flex items-center gap-2 mb-1.5">
@@ -378,8 +378,8 @@ export default function VectorSpace() {
         )}
       </AnimatePresence>
 
-      {/* Legend */}
-      <div className="absolute bottom-4 right-4 bg-[#1a1d27]/90 rounded-lg p-3 text-xs space-y-2 max-h-[60%] overflow-y-auto">
+      {/* Legend — collapsed on mobile, full on desktop */}
+      <div className="absolute bottom-20 md:bottom-4 right-4 bg-[#1a1d27]/90 rounded-lg p-2 md:p-3 text-[10px] md:text-xs space-y-1.5 md:space-y-2 max-h-[40%] md:max-h-[60%] overflow-y-auto">
         {Object.entries(CATEGORY_COLORS).map(([cat, catColor]) => {
           const catSubs = {
             'Credit Card': ['Travel', 'Cashback', 'Balance Transfer'],
@@ -393,7 +393,7 @@ export default function VectorSpace() {
                 <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: catColor }} />
                 <span className="text-[#94a3b8] font-semibold">{cat}</span>
               </div>
-              <div className="ml-4 space-y-0.5">
+              <div className="ml-4 space-y-0.5 hidden md:block">
                 {catSubs[cat]?.map((sub) => {
                   const shape = SUBCATEGORY_SHAPES[sub] || 'sphere'
                   const color = SUBCATEGORY_COLORS[sub] || catColor
@@ -427,7 +427,7 @@ export default function VectorSpace() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="absolute bottom-4 left-4 max-w-sm bg-indigo-500/10 border border-indigo-500/30
+          className="absolute top-4 left-4 right-4 md:right-auto max-w-sm bg-indigo-500/10 border border-indigo-500/30
                      rounded-lg p-3 text-xs text-indigo-200"
         >
           <span className="font-semibold">How this works:</span> The query landed between

@@ -24,6 +24,29 @@ const EXPLAINERS = {
     ],
     next: 'Next: See how the AI reasons step-by-step with ReAct & Tool Calling',
   },
+  2: {
+    title: 'What just happened?',
+    subtitle: 'ReAct — Reasoning + Acting',
+    points: [
+      {
+        heading: 'Think → Act → Observe Loop',
+        text: 'Instead of answering in one shot, the agent follows a loop: it thinks about what it needs, calls a tool to get it, reads the result, and decides whether to loop again or answer. This makes responses more reliable and grounded.',
+      },
+      {
+        heading: 'Tool Calling',
+        text: 'The agent delegated work to specialised tools — RAG Search for product data and a Calculator for arithmetic. LLMs are unreliable at maths, so offloading to a deterministic calculator guarantees accuracy.',
+      },
+      {
+        heading: 'Chain of Thought',
+        text: 'Each "Thought" step is the agent reasoning out loud. This chain-of-thought prompting helps the model plan multi-step tasks, decide which tool to use, and interpret results before forming a final answer.',
+      },
+      {
+        heading: 'Why ReAct?',
+        text: 'Pure chain-of-thought can hallucinate facts. Pure tool use can miss context. ReAct combines both — the agent reasons about when and why to use tools, then grounds its answer in real data. It\'s the pattern behind most production AI agents today.',
+      },
+    ],
+    next: 'Next: See how multiple AI agents collaborate with Multi-Agent Orchestration',
+  },
 }
 
 export default function SceneExplainer({ sceneId }) {
@@ -31,7 +54,7 @@ export default function SceneExplainer({ sceneId }) {
   if (!content) return null
 
   return (
-    <section className="min-h-screen bg-[#0f1117] flex items-center justify-center px-8 py-24">
+    <section className="min-h-screen bg-[#0f1117] flex items-center justify-center px-4 md:px-8 py-12 md:py-24">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -42,11 +65,11 @@ export default function SceneExplainer({ sceneId }) {
         <p className="text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-2">
           {content.subtitle}
         </p>
-        <h2 className="text-3xl font-bold text-white mb-10">
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 md:mb-10">
           {content.title}
         </h2>
 
-        <div className="space-y-8">
+        <div className="space-y-5 md:space-y-8">
           {content.points.map((point, i) => (
             <motion.div
               key={i}
@@ -73,7 +96,7 @@ export default function SceneExplainer({ sceneId }) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8 }}
-          className="mt-16 pt-8 border-t border-[#2a2d3a] text-center"
+          className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-[#2a2d3a] text-center"
         >
           <p className="text-[#64748b] text-sm mb-3">{content.next}</p>
           <div className="flex justify-center">

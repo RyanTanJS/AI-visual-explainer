@@ -1,0 +1,134 @@
+{
+  "scene": 3,
+  "query": "Actually, I'm also thinking about buying a flat in the next year or so. My rent is £1,200/month and I've saved about £25,000. Can you tell me what mortgage options I might qualify for, and would having this credit card affect my mortgage application?",
+  "steps": [
+    {
+      "type": "thought",
+      "agent": "orchestrator",
+      "content": "Analysing query — I detect three distinct intents: mortgage product lookup, eligibility assessment with credit card impact, and cross-sell recommendation. Routing to all three agents in parallel.",
+      "t": 0
+    },
+    {
+      "type": "routing_decision",
+      "agent": "orchestrator",
+      "decision": {
+        "query_intents": [
+          {
+            "intent": "mortgage product options for first-time buyer",
+            "agent": "product_agent",
+            "priority": "high",
+            "context": "income £42k, savings £25k, first-time buyer"
+          },
+          {
+            "intent": "credit card impact on mortgage eligibility",
+            "agent": "eligibility_agent",
+            "priority": "high",
+            "context": "has Apex Sapphire card, £250 annual fee, £1800/month spend"
+          },
+          {
+            "intent": "related product recommendations",
+            "agent": "recommendation_agent",
+            "priority": "medium",
+            "context": "existing credit card customer moving to mortgage"
+          }
+        ],
+        "routing_strategy": "parallel",
+        "reasoning": "Three distinct intents detected — product lookup, eligibility assessment, and cross-sell recommendation can all run simultaneously"
+      },
+      "t": 1200
+    },
+    {
+      "type": "edge_activated",
+      "edge": "orchestrator-product_agent",
+      "t": 2000
+    },
+    {
+      "type": "edge_activated",
+      "edge": "orchestrator-eligibility_agent",
+      "t": 2000
+    },
+    {
+      "type": "edge_activated",
+      "edge": "orchestrator-recommendation_agent",
+      "t": 2000
+    },
+    {
+      "type": "agent_working",
+      "agent": "product_agent",
+      "status": "Searching product database...",
+      "memory": {
+        "short_term": "first-time buyer, £42k income, £25k savings",
+        "long_term": "Full product catalog",
+        "episodic": "Similar past queries"
+      },
+      "t": 2400
+    },
+    {
+      "type": "agent_working",
+      "agent": "eligibility_agent",
+      "status": "Checking eligibility criteria...",
+      "memory": {
+        "short_term": "credit card £250 fee, debt-to-income ratio",
+        "long_term": "Eligibility criteria rules",
+        "episodic": "Alex's profile from Scene 2"
+      },
+      "t": 2400
+    },
+    {
+      "type": "agent_working",
+      "agent": "recommendation_agent",
+      "status": "Finding related products...",
+      "memory": {
+        "short_term": "Alex's confirmed products",
+        "long_term": "Product similarity map",
+        "episodic": "Alex liked travel benefits"
+      },
+      "t": 2400
+    },
+    {
+      "type": "agent_output",
+      "agent": "product_agent",
+      "result": "Based on your income of £42,000 and savings of £25,000, our First Home Mortgage is designed for buyers like you. With a 5% deposit (£25,000), you could look at properties up to approximately £500,000. Current rates start from 4.2% fixed for 2 years.",
+      "t": 4000
+    },
+    {
+      "type": "agent_output",
+      "agent": "eligibility_agent",
+      "result": "You meet the minimum income requirement of £25,000 for the First Home Mortgage. Having the Sapphire card won't negatively affect your application — lenders look at your overall debt-to-income ratio. Your £1,800/month spend is within a healthy range on your income.",
+      "t": 4400
+    },
+    {
+      "type": "agent_output",
+      "agent": "recommendation_agent",
+      "result": "As an existing Apex Bank customer, you may qualify for our Loyalty Mortgage Rate — a 0.15% discount on standard rates. Your responsible credit card management demonstrates financial reliability, which strengthens your mortgage application.",
+      "t": 4800
+    },
+    {
+      "type": "edge_activated",
+      "edge": "product_agent-synthesiser",
+      "t": 5200
+    },
+    {
+      "type": "edge_activated",
+      "edge": "eligibility_agent-synthesiser",
+      "t": 5200
+    },
+    {
+      "type": "edge_activated",
+      "edge": "recommendation_agent-synthesiser",
+      "t": 5200
+    },
+    {
+      "type": "agent_working",
+      "agent": "synthesiser",
+      "status": "Combining outputs...",
+      "t": 5400
+    },
+    {
+      "type": "answer",
+      "content": "Happy to help with both! Based on your £42,000 income and £25,000 in savings, you'd likely qualify for our First Home Mortgage — with a 5% deposit you could look at properties up to around £500,000 depending on affordability assessment.\n\nOn your credit card question: having the Sapphire card itself won't negatively affect your mortgage application — what lenders look at is your overall debt-to-income ratio. Your £1,800/month card spend is well within a healthy range on your income, and you've been managing it responsibly.\n\nOne thing worth knowing: as an existing Apex Bank customer, you may qualify for our Loyalty Mortgage Rate, which offers a 0.15% discount on standard rates. Would you like me to run through a rough monthly payment estimate?",
+      "t": 6000
+    }
+  ],
+  "final_answer": "Happy to help with both! Based on your £42,000 income and £25,000 in savings, you'd likely qualify for our First Home Mortgage — with a 5% deposit you could look at properties up to around £500,000 depending on affordability assessment.\n\nOn your credit card question: having the Sapphire card itself won't negatively affect your mortgage application — what lenders look at is your overall debt-to-income ratio. Your £1,800/month card spend is well within a healthy range on your income, and you've been managing it responsibly.\n\nOne thing worth knowing: as an existing Apex Bank customer, you may qualify for our Loyalty Mortgage Rate, which offers a 0.15% discount on standard rates. Would you like me to run through a rough monthly payment estimate?"
+}

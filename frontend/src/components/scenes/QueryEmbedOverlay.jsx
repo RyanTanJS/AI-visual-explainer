@@ -135,8 +135,9 @@ export default function QueryEmbedOverlay() {
   const query = trace?.query || ''
 
   return (
-    <div className="absolute top-0 left-0 w-[340px] h-full z-10 flex flex-col p-4 overflow-y-auto
-                    bg-gradient-to-r from-[#0f1117] via-[#0f1117]/95 to-transparent">
+    <div className="absolute top-0 left-0 h-full z-10 flex flex-col p-3 md:p-4 overflow-y-auto
+                    bg-gradient-to-r from-[#0f1117] via-[#0f1117]/95 to-transparent"
+         style={{ width: 'min(90%, 340px)' }}>
       <div className="mb-4">
         <h3 className="text-white text-sm font-semibold mb-1">
           Step 2: Embedding the Query
