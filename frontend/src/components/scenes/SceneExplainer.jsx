@@ -47,6 +47,29 @@ const EXPLAINERS = {
     ],
     next: 'Next: See how multiple AI agents collaborate with Multi-Agent Orchestration',
   },
+  3: {
+    title: 'What just happened?',
+    subtitle: 'Multi-Agent Orchestration',
+    points: [
+      {
+        heading: 'Router / Orchestrator',
+        text: 'A central orchestrator agent analysed the query and decided which specialist agents to invoke. This pattern lets you decompose complex tasks — no single agent needs to know everything.',
+      },
+      {
+        heading: 'Specialist Agents',
+        text: 'Each agent has its own tools, system prompt, and memory scope. The mortgage agent searches mortgage products, the affordability agent runs calculations — they work in parallel, each focused on their domain.',
+      },
+      {
+        heading: 'Agent Memory',
+        text: 'Agents maintain three types of memory: short-term (current conversation), long-term (persisted knowledge), and episodic (past interactions). This lets them recall context without re-computing everything.',
+      },
+      {
+        heading: 'Why Multi-Agent?',
+        text: 'Single-agent systems hit limits on complex tasks — context windows overflow, tool lists get unwieldy, and reasoning degrades. Splitting into specialists keeps each agent focused, accurate, and maintainable. It\'s how production AI systems like coding assistants and customer support bots are built.',
+      },
+    ],
+    next: 'You\'ve seen the full stack — from vector search to multi-agent orchestration',
+  },
 }
 
 export default function SceneExplainer({ sceneId }) {
@@ -62,7 +85,7 @@ export default function SceneExplainer({ sceneId }) {
         transition={{ duration: 0.6 }}
         className="max-w-2xl w-full"
       >
-        <p className="text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-2">
+        <p className="text-teal-400 text-xs font-semibold uppercase tracking-widest mb-2">
           {content.subtitle}
         </p>
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 md:mb-10">
@@ -79,8 +102,8 @@ export default function SceneExplainer({ sceneId }) {
               transition={{ delay: i * 0.15, duration: 0.4 }}
               className="flex gap-4"
             >
-              <div className="shrink-0 w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-500/30
-                              flex items-center justify-center text-indigo-400 text-sm font-bold">
+              <div className="shrink-0 w-8 h-8 rounded-lg bg-teal-500/20 border border-teal-500/30
+                              flex items-center justify-center text-teal-400 text-sm font-bold">
                 {i + 1}
               </div>
               <div>
@@ -99,11 +122,13 @@ export default function SceneExplainer({ sceneId }) {
           className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-[#2a2d3a] text-center"
         >
           <p className="text-[#64748b] text-sm mb-3">{content.next}</p>
-          <div className="flex justify-center">
-            <svg className="w-5 h-5 text-[#64748b] animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </div>
+          {sceneId < 3 && (
+            <div className="flex justify-center">
+              <svg className="w-5 h-5 text-[#64748b] animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </div>
+          )}
         </motion.div>
       </motion.div>
     </section>

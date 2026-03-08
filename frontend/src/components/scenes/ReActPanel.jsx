@@ -5,10 +5,10 @@ import useSceneStore from '../../stores/sceneStore'
 const NODE_STYLES = {
   thought: {
     label: 'Thought',
-    color: '#6366f1',
-    lightColor: '#a5b4fc',
-    bg: '#6366f115',
-    border: '#6366f140',
+    color: '#14b8a6',
+    lightColor: '#5eead4',
+    bg: '#14b8a615',
+    border: '#14b8a640',
   },
   action: {
     label: 'Action',
@@ -19,10 +19,10 @@ const NODE_STYLES = {
   },
   observation: {
     label: 'Observation',
-    color: '#10b981',
-    lightColor: '#6ee7b7',
-    bg: '#10b98115',
-    border: '#10b98140',
+    color: '#3b82f6',
+    lightColor: '#93c5fd',
+    bg: '#3b82f615',
+    border: '#3b82f640',
   },
   answer: {
     label: 'Final Answer',
@@ -232,8 +232,8 @@ export default function ReActPanel() {
           <div className="flex gap-2 items-center">
             <div className="flex items-center gap-1 text-[10px]">
               <span className="px-1.5 py-0.5 rounded" style={{
-                background: activeStep?.type === 'thought' ? '#6366f130' : 'transparent',
-                color: activeStep?.type === 'thought' ? '#a5b4fc' : '#64748b',
+                background: activeStep?.type === 'thought' ? '#14b8a630' : 'transparent',
+                color: activeStep?.type === 'thought' ? '#5eead4' : '#64748b',
               }}>Think</span>
               <span className="text-[#64748b]">&rarr;</span>
               <span className="px-1.5 py-0.5 rounded" style={{
@@ -242,8 +242,8 @@ export default function ReActPanel() {
               }}>Act</span>
               <span className="text-[#64748b]">&rarr;</span>
               <span className="px-1.5 py-0.5 rounded" style={{
-                background: activeStep?.type === 'observation' ? '#10b98130' : 'transparent',
-                color: activeStep?.type === 'observation' ? '#6ee7b7' : '#64748b',
+                background: activeStep?.type === 'observation' ? '#3b82f630' : 'transparent',
+                color: activeStep?.type === 'observation' ? '#93c5fd' : '#64748b',
               }}>Observe</span>
             </div>
           </div>
@@ -360,8 +360,8 @@ export default function ReActPanel() {
                 <span
                   className="px-1.5 py-0.5 rounded transition-colors"
                   style={{
-                    background: activeStep?.type === 'thought' ? '#6366f130' : 'transparent',
-                    color: activeStep?.type === 'thought' ? '#a5b4fc' : '#64748b',
+                    background: activeStep?.type === 'thought' ? '#14b8a630' : 'transparent',
+                    color: activeStep?.type === 'thought' ? '#5eead4' : '#64748b',
                   }}
                 >
                   Think
@@ -380,8 +380,8 @@ export default function ReActPanel() {
                 <span
                   className="px-1.5 py-0.5 rounded transition-colors"
                   style={{
-                    background: activeStep?.type === 'observation' ? '#10b98130' : 'transparent',
-                    color: activeStep?.type === 'observation' ? '#6ee7b7' : '#64748b',
+                    background: activeStep?.type === 'observation' ? '#3b82f630' : 'transparent',
+                    color: activeStep?.type === 'observation' ? '#93c5fd' : '#64748b',
                   }}
                 >
                   Observe
@@ -506,8 +506,8 @@ export default function ReActPanel() {
           <button
             onClick={advanceReact}
             className="w-full py-2 px-3 rounded-lg text-xs font-semibold
-                       bg-indigo-500/20 text-indigo-300 border border-indigo-500/30
-                       hover:bg-indigo-500/30 transition-colors"
+                       bg-teal-500/20 text-teal-300 border border-teal-500/30
+                       hover:bg-teal-500/30 transition-colors"
           >
             {buttonLabel}
           </button>

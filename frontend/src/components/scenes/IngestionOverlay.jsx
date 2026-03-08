@@ -13,7 +13,7 @@ const FAKE_3D = '[0.21, 0.10, 0.02]'
 const CHUNK_COLORS = [
   { bg: 'rgba(251, 191, 36, 0.20)', border: 'rgba(251, 191, 36, 0.5)' },  // amber
   { bg: 'rgba(52, 211, 153, 0.20)', border: 'rgba(52, 211, 153, 0.5)' },   // emerald
-  { bg: 'rgba(129, 140, 248, 0.20)', border: 'rgba(129, 140, 248, 0.5)' }, // indigo
+  { bg: 'rgba(20, 184, 166, 0.20)', border: 'rgba(20, 184, 166, 0.5)' }, // teal
   { bg: 'rgba(244, 114, 182, 0.20)', border: 'rgba(244, 114, 182, 0.5)' }, // pink
   { bg: 'rgba(34, 211, 238, 0.20)', border: 'rgba(34, 211, 238, 0.5)' },   // cyan
   { bg: 'rgba(167, 139, 250, 0.20)', border: 'rgba(167, 139, 250, 0.5)' }, // violet
@@ -36,7 +36,7 @@ function ProductCard({ product, showChunks }) {
       className="bg-[#1a1d27] border border-[#2a2d3a] rounded-lg p-3 md:p-4 mb-2 md:mb-3"
     >
       <div className="flex items-center gap-2 mb-2">
-        <div className="w-2 h-2 rounded-full bg-indigo-400" />
+        <div className="w-2 h-2 rounded-full bg-teal-400" />
         <span className="text-white font-semibold text-sm">{product.product_name}</span>
       </div>
 
@@ -86,7 +86,7 @@ function ProductCard({ product, showChunks }) {
                   initial={showChunks ? { backgroundColor: 'transparent' } : false}
                   animate={showChunks ? { backgroundColor: CHUNK_COLORS[chunkIdx % CHUNK_COLORS.length].bg } : {}}
                   transition={showChunks ? { delay: chunkIdx * 0.3, duration: 0.4 } : {}}
-                  className="text-indigo-300 px-1.5 py-0.5 rounded text-[10px]"
+                  className="text-teal-300 px-1.5 py-0.5 rounded text-[10px]"
                   style={showChunks ? {
                     borderBottom: `2px solid ${CHUNK_COLORS[chunkIdx % CHUNK_COLORS.length].border}`,
                   } : { backgroundColor: 'rgba(99, 102, 241, 0.1)' }}
@@ -170,9 +170,9 @@ function PlaceView() {
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="bg-indigo-500/10 border border-indigo-500/30 rounded-lg p-3 mb-3 text-center"
+      className="bg-teal-500/10 border border-teal-500/30 rounded-lg p-3 mb-3 text-center"
     >
-      <p className="text-indigo-300 text-xs">
+      <p className="text-teal-300 text-xs">
         Vector stored in ChromaDB and placed in 3D space
       </p>
     </motion.div>
@@ -201,7 +201,7 @@ const STEP_INFO = {
   },
   place: {
     title: 'Storing & Visualising',
-    color: 'indigo',
+    color: 'teal',
     content:
       'The vector is stored in ChromaDB, a vector database optimised for similarity search. To visualise it in 3D, PCA (Principal Component Analysis) compresses the 3,072 dimensions down to just 3 while preserving relative distances between points.',
   },
@@ -214,7 +214,7 @@ function StepInfoPanel({ ingestStep }) {
   const colorMap = {
     amber: { bg: 'bg-amber-500/10', border: 'border-amber-500/30', title: 'text-amber-400', accent: 'bg-amber-500' },
     emerald: { bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', title: 'text-emerald-400', accent: 'bg-emerald-500' },
-    indigo: { bg: 'bg-indigo-500/10', border: 'border-indigo-500/30', title: 'text-indigo-400', accent: 'bg-indigo-500' },
+    teal: { bg: 'bg-teal-500/10', border: 'border-teal-500/30', title: 'text-teal-400', accent: 'bg-teal-500' },
   }
   const c = colorMap[info.color]
 
@@ -344,8 +344,8 @@ export default function IngestionOverlay() {
           <button
             onClick={advanceIngest}
             className="w-full py-2 px-3 rounded-lg text-xs font-semibold
-                       bg-indigo-500/20 text-indigo-300 border border-indigo-500/30
-                       hover:bg-indigo-500/30 transition-colors"
+                       bg-teal-500/20 text-teal-300 border border-teal-500/30
+                       hover:bg-teal-500/30 transition-colors"
           >
             {STEP_LABELS[ingestStep] || 'Next'}
           </button>
@@ -354,8 +354,8 @@ export default function IngestionOverlay() {
             onClick={storeOne}
             disabled={allStored}
             className="w-full py-2 px-3 rounded-lg text-xs font-semibold
-                       bg-indigo-500/20 text-indigo-300 border border-indigo-500/30
-                       hover:bg-indigo-500/30 transition-colors
+                       bg-teal-500/20 text-teal-300 border border-teal-500/30
+                       hover:bg-teal-500/30 transition-colors
                        disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {allStored

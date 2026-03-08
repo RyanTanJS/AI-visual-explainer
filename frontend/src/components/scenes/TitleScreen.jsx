@@ -77,7 +77,7 @@ export default function TitleScreen() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-xl relative z-10"
         >
-          <p className="text-indigo-400 text-xs font-semibold uppercase tracking-[0.25em] mb-4">
+          <p className="text-teal-400 text-xs font-semibold uppercase tracking-[0.25em] mb-4">
             Interactive Explainer
           </p>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">
@@ -116,7 +116,7 @@ export default function TitleScreen() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl w-full"
         >
-          <p className="text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-2">
+          <p className="text-teal-400 text-xs font-semibold uppercase tracking-widest mb-2">
             The Story
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
@@ -136,8 +136,8 @@ export default function TitleScreen() {
                 transition={{ delay: i * 0.15, duration: 0.4 }}
                 className="flex gap-4"
               >
-                <div className="shrink-0 w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-500/30
-                                flex items-center justify-center text-indigo-400 text-sm font-bold">
+                <div className="shrink-0 w-8 h-8 rounded-lg bg-teal-500/20 border border-teal-500/30
+                                flex items-center justify-center text-teal-400 text-sm font-bold">
                   {scene.number}
                 </div>
                 <div>

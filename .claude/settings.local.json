@@ -17,7 +17,8 @@
       "Bash(node -e \"const p = require\\(''./backend/data/products.json''\\); const cc4 = p.find\\(x => x.product_id===''CC-004''\\); const cc6 = p.find\\(x => x.product_id===''CC-006''\\); console.log\\(''CC-004:'', cc4.description, ''|'', cc4.benefits.join\\('', ''\\)\\); console.log\\(''---''\\); console.log\\(''CC-006:'', cc6.description, ''|'', cc6.benefits.join\\('', ''\\)\\)\")",
       "Bash(npx vite build)",
       "Bash(xargs grep -l \"md:\")",
-      "Bash(npx vite build --mode development)"
+      "Bash(npx vite build --mode development)",
+      "Bash(npm run build)"
     ]
   }
 }

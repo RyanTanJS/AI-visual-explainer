@@ -12,9 +12,9 @@ import useSceneStore from '../../stores/sceneStore'
 
 // ── Agent colour config ────────────────────────────────────────
 const AGENT_COLORS = {
-  orchestrator: { bg: '#6366f1', border: '#818cf8', text: '#c7d2fe', glow: '#6366f140' },
+  orchestrator: { bg: '#14b8a6', border: '#2dd4bf', text: '#99f6e4', glow: '#14b8a640' },
   product_agent: { bg: '#f59e0b', border: '#fbbf24', text: '#fef3c7', glow: '#f59e0b40' },
-  eligibility_agent: { bg: '#10b981', border: '#34d399', text: '#d1fae5', glow: '#10b98140' },
+  eligibility_agent: { bg: '#3b82f6', border: '#60a5fa', text: '#dbeafe', glow: '#3b82f640' },
   recommendation_agent: { bg: '#ec4899', border: '#f472b6', text: '#fce7f3', glow: '#ec489940' },
   synthesiser: { bg: '#8b5cf6', border: '#a78bfa', text: '#ddd6fe', glow: '#8b5cf640' },
 }
@@ -228,12 +228,12 @@ function HexagonNode({ data }) {
               className={isMobile ? 'px-2 py-1 space-y-0.5' : 'px-3 py-2 space-y-1.5'}
             >
               {status && !result && (
-                <p className={`m-0 ${isMobile ? 'text-[9px] line-clamp-2' : 'text-[10px] line-clamp-2'}`} style={{ color: colors.text }}>
+                <p className={`m-0 ${isMobile ? 'text-[9px]' : 'text-[10px] line-clamp-2'}`} style={{ color: colors.text }}>
                   {status}
                 </p>
               )}
               {result && (
-                <p className={`leading-relaxed text-[#cbd5e1] m-0 ${isMobile ? 'text-[9px] line-clamp-2' : 'text-[10px] line-clamp-3'}`}>
+                <p className={`leading-relaxed text-[#cbd5e1] m-0 ${isMobile ? 'text-[9px]' : 'text-[10px] line-clamp-3'}`}>
                   {result}
                 </p>
               )}
@@ -381,7 +381,7 @@ function buildGraph(trace, stepIndex, visibleSteps, isMobile) {
   const edges = edgeDefs.map((e) => {
     const isActivated = activatedEdges.has(e.traceId)
     const isNew = newEdges.has(e.traceId)
-    const sourceColor = AGENT_COLORS[e.source]?.bg || '#6366f1'
+    const sourceColor = AGENT_COLORS[e.source]?.bg || '#14b8a6'
 
     return {
       id: e.id,
@@ -505,12 +505,13 @@ export default function MultiAgentGraph() {
           nodesDraggable={false}
           nodesConnectable={false}
           elementsSelectable={false}
-          panOnDrag={isMobile}
-          zoomOnScroll={isMobile}
+          panOnDrag={false}
+          zoomOnScroll={false}
           zoomOnPinch={isMobile}
-          zoomOnDoubleClick={isMobile}
+          zoomOnDoubleClick={false}
           minZoom={0.3}
           maxZoom={2}
+          translateExtent={[[-200, -200], [900, 700]]}
           proOptions={{ hideAttribution: true }}
         >
           <Background color="#1e2130" gap={20} size={1} />
@@ -564,8 +565,8 @@ export default function MultiAgentGraph() {
           <button
             onClick={advanceReact}
             className="w-full py-2 px-3 rounded-lg text-xs font-semibold
-                       bg-indigo-500/20 text-indigo-300 border border-indigo-500/30
-                       hover:bg-indigo-500/30 transition-colors"
+                       bg-teal-500/20 text-teal-300 border border-teal-500/30
+                       hover:bg-teal-500/30 transition-colors"
           >
             {buttonLabel}
           </button>

@@ -7,10 +7,10 @@ function getProcessingStatus(phase, ingestStep, queryEmbedStep, currentScene, re
   // Scene 1 — ingestion phase
   if (currentScene === 1 && phase === 'ingest') {
     if (!ingestStep) return { text: 'Waiting to build vector database...', color: '#64748b' }
-    if (ingestStep === 'card') return { text: 'Reading product document...', color: '#a5b4fc' }
+    if (ingestStep === 'card') return { text: 'Reading product document...', color: '#5eead4' }
     if (ingestStep === 'chunk') return { text: 'Chunking text with SentenceSplitter...', color: '#fbbf24' }
     if (ingestStep === 'embed') return { text: 'Generating embedding vector...', color: '#6ee7b7' }
-    if (ingestStep === 'place') return { text: 'Storing vector in ChromaDB...', color: '#a5b4fc' }
+    if (ingestStep === 'place') return { text: 'Storing vector in ChromaDB...', color: '#5eead4' }
   }
 
   // Scene 1 — query embedding
@@ -26,7 +26,7 @@ function getProcessingStatus(phase, ingestStep, queryEmbedStep, currentScene, re
     const hasObs = steps.some((s) => s.type === 'observation')
     const hasAnswer = steps.some((s) => s.type === 'answer')
     if (hasAnswer) return null
-    if (hasObs) return { text: 'Generating response from retrieved documents...', color: '#a5b4fc' }
+    if (hasObs) return { text: 'Generating response from retrieved documents...', color: '#5eead4' }
     return { text: 'Searching vector database...', color: '#6ee7b7' }
   }
 
@@ -35,7 +35,7 @@ function getProcessingStatus(phase, ingestStep, queryEmbedStep, currentScene, re
     const traceSteps = steps
     const activeStep = traceSteps[reactStepIndex]
     if (!activeStep) return null
-    if (activeStep.type === 'thought') return { text: 'Thinking — planning next step...', color: '#a5b4fc' }
+    if (activeStep.type === 'thought') return { text: 'Thinking — planning next step...', color: '#5eead4' }
     if (activeStep.type === 'action' && activeStep.tool === 'rag_search') return { text: 'Calling tool: rag_search()...', color: '#fcd34d' }
     if (activeStep.type === 'action' && activeStep.tool === 'calculator') return { text: 'Calling tool: calculator()...', color: '#fcd34d' }
     if (activeStep.type === 'action') return { text: `Calling tool: ${activeStep.tool}()...`, color: '#fcd34d' }
@@ -48,9 +48,9 @@ function getProcessingStatus(phase, ingestStep, queryEmbedStep, currentScene, re
     const traceSteps = steps
     const activeStep = traceSteps[reactStepIndex]
     if (!activeStep) return null
-    if (activeStep.type === 'thought') return { text: 'Orchestrator analysing query...', color: '#a5b4fc' }
-    if (activeStep.type === 'routing_decision') return { text: 'Routing to specialised agents...', color: '#818cf8' }
-    if (activeStep.type === 'edges_activated') return { text: 'Passing context to all agents...', color: '#818cf8' }
+    if (activeStep.type === 'thought') return { text: 'Orchestrator analysing query...', color: '#5eead4' }
+    if (activeStep.type === 'routing_decision') return { text: 'Routing to specialised agents...', color: '#2dd4bf' }
+    if (activeStep.type === 'edges_activated') return { text: 'Passing context to all agents...', color: '#2dd4bf' }
     if (activeStep.type === 'agent_working') return { text: `${activeStep.agent.replace('_', ' ')} processing...`, color: '#fcd34d' }
     if (activeStep.type === 'agent_output') return { text: `${activeStep.agent.replace('_', ' ')} complete`, color: '#6ee7b7' }
     if (activeStep.type === 'answer') return { text: 'Synthesising final response...', color: '#f9a8d4' }
@@ -128,7 +128,14 @@ export default function ChatPanel() {
 
       {/* Controls */}
       <div className="p-4 border-t border-[#2a2d3a] flex gap-2">
-        {isQueryEmbed ? (
+        {sceneCompleted[currentScene] ? (
+          <div className="flex-1 flex items-center justify-center gap-2 text-emerald-400 text-sm py-2">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            Scene Complete
+          </div>
+        ) : isQueryEmbed ? (
           <button
             onClick={advanceQueryEmbed}
             className="flex-1 bg-pink-500 hover:bg-pink-600
@@ -147,7 +154,7 @@ export default function ChatPanel() {
           <button
             onClick={play}
             disabled={isPlaying || phase === 'ingest'}
-            className="flex-1 bg-indigo-500 hover:bg-indigo-600 disabled:opacity-40
+            className="flex-1 bg-teal-500 hover:bg-teal-600 disabled:opacity-40
                        text-white text-sm py-2 px-4 rounded-lg transition-colors"
           >
             {isPlaying ? 'Playing...' : 'Play Scene'}

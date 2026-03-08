@@ -427,8 +427,8 @@ export default function VectorSpace() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="absolute top-4 left-4 right-4 md:right-auto max-w-sm bg-indigo-500/10 border border-indigo-500/30
-                     rounded-lg p-3 text-xs text-indigo-200"
+          className="absolute top-4 left-4 right-4 md:right-auto max-w-sm bg-teal-500/10 border border-teal-500/30
+                     rounded-lg p-3 text-xs text-teal-200"
         >
           <span className="font-semibold">How this works:</span> The query landed between
           the travel and cashback clusters — the AI understood that "saves me money on everyday

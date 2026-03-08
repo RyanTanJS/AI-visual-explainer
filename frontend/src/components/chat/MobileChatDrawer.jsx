@@ -7,10 +7,10 @@ import useSceneStore from '../../stores/sceneStore'
 function getMobileStatus(phase, ingestStep, queryEmbedStep, currentScene, steps, sceneCompleted) {
   if (currentScene === 1 && phase === 'ingest') {
     if (!ingestStep) return null
-    if (ingestStep === 'card') return { text: 'Reading document...', color: '#a5b4fc' }
+    if (ingestStep === 'card') return { text: 'Reading document...', color: '#5eead4' }
     if (ingestStep === 'chunk') return { text: 'Chunking text...', color: '#fbbf24' }
     if (ingestStep === 'embed') return { text: 'Generating embedding...', color: '#6ee7b7' }
-    if (ingestStep === 'place') return { text: 'Storing vector...', color: '#a5b4fc' }
+    if (ingestStep === 'place') return { text: 'Storing vector...', color: '#5eead4' }
   }
   if (currentScene === 1 && phase === 'query-embed') {
     if (queryEmbedStep === 'card') return { text: 'Preparing query...', color: '#f9a8d4' }
@@ -22,17 +22,17 @@ function getMobileStatus(phase, ingestStep, queryEmbedStep, currentScene, steps,
     const hasAnswer = steps.some((s) => s.type === 'answer')
     if (hasAnswer) return null
     const hasObs = steps.some((s) => s.type === 'observation')
-    if (hasObs) return { text: 'Generating response...', color: '#a5b4fc' }
+    if (hasObs) return { text: 'Generating response...', color: '#5eead4' }
     return { text: 'Searching vectors...', color: '#6ee7b7' }
   }
   if (currentScene >= 2 && !sceneCompleted[currentScene]) {
     const activeStep = steps[steps.length - 1]
     if (!activeStep) return null
-    if (activeStep.type === 'thought') return { text: 'Thinking...', color: '#a5b4fc' }
+    if (activeStep.type === 'thought') return { text: 'Thinking...', color: '#5eead4' }
     if (activeStep.type === 'action') return { text: `Tool: ${activeStep.tool}()`, color: '#fcd34d' }
     if (activeStep.type === 'observation') return { text: 'Reading result...', color: '#6ee7b7' }
-    if (activeStep.type === 'routing_decision') return { text: 'Routing agents...', color: '#818cf8' }
-    if (activeStep.type === 'edges_activated') return { text: 'Sending context...', color: '#818cf8' }
+    if (activeStep.type === 'routing_decision') return { text: 'Routing agents...', color: '#2dd4bf' }
+    if (activeStep.type === 'edges_activated') return { text: 'Sending context...', color: '#2dd4bf' }
     if (activeStep.type === 'agent_working') return { text: `${activeStep.agent} working...`, color: '#fcd34d' }
     if (activeStep.type === 'agent_output') return { text: `${activeStep.agent} done`, color: '#6ee7b7' }
     if (activeStep.type === 'answer') return null
@@ -127,7 +127,7 @@ function MobileBottomBar() {
             className="overflow-hidden"
           >
             <div className="px-3 pt-3 pb-1 max-h-[40vh] overflow-y-auto">
-              <p className="text-[10px] font-semibold text-indigo-400 mb-1">Apex AI</p>
+              <p className="text-[10px] font-semibold text-teal-400 mb-1">Apex AI</p>
               <p className="text-xs text-[#e2e8f0] leading-relaxed">
                 {answerStep.content}
               </p>
@@ -140,7 +140,7 @@ function MobileBottomBar() {
         {/* Query bubble */}
         <div className="flex items-start gap-2">
           <div className="flex-1 min-w-0">
-            <p className="text-[10px] text-indigo-300 font-semibold mb-0.5">Alex</p>
+            <p className="text-[10px] text-teal-300 font-semibold mb-0.5">Alex</p>
             <p className="text-xs text-white/90 line-clamp-2">{query}</p>
           </div>
 
@@ -148,8 +148,8 @@ function MobileBottomBar() {
           {answerStep && (
             <button
               onClick={() => setExpanded(!expanded)}
-              className="shrink-0 text-[10px] text-indigo-400 hover:text-indigo-300
-                         px-2 py-1 rounded border border-indigo-500/30 transition-colors"
+              className="shrink-0 text-[10px] text-teal-400 hover:text-teal-300
+                         px-2 py-1 rounded border border-teal-500/30 transition-colors"
             >
               {expanded ? 'Hide' : 'View'} answer
             </button>
@@ -182,7 +182,7 @@ function MobileBottomBar() {
               className={`shrink-0 text-xs font-semibold py-1.5 px-4 rounded-lg transition-colors
                 ${btnConfig.variant === 'pink'
                   ? 'bg-pink-500 hover:bg-pink-600 text-white'
-                  : 'bg-indigo-500 hover:bg-indigo-600 text-white'
+                  : 'bg-teal-500 hover:bg-teal-600 text-white'
                 } disabled:opacity-40 disabled:cursor-not-allowed`}
             >
               {btnConfig.label}

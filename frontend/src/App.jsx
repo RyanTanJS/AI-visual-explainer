@@ -13,7 +13,7 @@ function SceneHeader({ number, title, active }) {
   return (
     <div className="flex items-center gap-2 md:gap-3 px-3 md:px-6 py-2 border-b border-[#2a2d3a] bg-[#1a1d27]/80 shrink-0">
       <span className={`text-xs font-mono px-2 py-0.5 rounded ${
-        active ? 'bg-indigo-500/20 text-indigo-300' : 'bg-[#2a2d3a] text-[#64748b]'
+        active ? 'bg-teal-500/20 text-teal-300' : 'bg-[#2a2d3a] text-[#64748b]'
       }`}>
         Scene {number}
       </span>
@@ -193,6 +193,9 @@ function App() {
                 )}
                 {sceneCompleted[3] && currentScene === 3 && <ScrollIndicator />}
               </section>
+
+              {/* Explainer after Scene 3 */}
+              {sceneCompleted[3] && <SceneExplainer sceneId={3} />}
             </>
           )}
         </>
