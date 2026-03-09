@@ -90,7 +90,7 @@ export default function TitleScreen() {
             From vector search to multi-agent orchestration.
           </p>
           <p className="text text-sm">
-            Follow Alex as they chat with an AI banking assistant. See what happens under the hood at every step.
+            Follow Chloe as they chat with an AI banking assistant. See what happens under the hood at every step.
           </p>
         </motion.div>
 
@@ -123,7 +123,7 @@ export default function TitleScreen() {
             What you're about to see
           </h2>
           <p className="text-[#94a3b8] text-sm leading-relaxed mb-8 md:mb-12">
-            Alex is a customer of Apex Bank. They're chatting with the bank's AI assistant to find the right products. Each scene shows a real AI technique — and you'll see exactly how it works under the hood.
+            Chloe is a customer of Apex Bank. They're chatting with the bank's AI assistant to find the right products. Each scene shows a real AI technique — and you'll see exactly how it works under the hood.
           </p>
 
           <div className="space-y-6 md:space-y-8">

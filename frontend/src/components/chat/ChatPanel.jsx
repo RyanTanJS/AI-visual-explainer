@@ -108,13 +108,13 @@ export default function ChatPanel() {
     <div className="w-full h-full flex flex-col border-r border-[#2a2d3a] bg-[#1a1d27]">
       {/* Chat header */}
       <div className="px-4 py-3 border-b border-[#2a2d3a]">
-        <p className="text-sm font-medium text-white">Alex's Conversation</p>
+        <p className="text-sm font-medium text-white">Chloe's Conversation</p>
         <p className="text-xs text-[#64748b]">Apex Bank AI Assistant</p>
       </div>
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {query && <MessageBubble sender="alex" text={query} />}
+        {query && <MessageBubble sender="chloe" text={query} />}
 
         {/* Processing indicator */}
         <AnimatePresence mode="wait">

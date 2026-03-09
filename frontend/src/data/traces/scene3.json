@@ -64,7 +64,7 @@
       "memory": {
         "short_term": "credit card £250 fee, debt-to-income ratio",
         "long_term": "Eligibility criteria rules",
-        "episodic": "Alex's profile from Scene 2"
+        "episodic": "Chloe's profile from Scene 2"
       },
       "t": 2400
     },
@@ -73,9 +73,9 @@
       "agent": "recommendation_agent",
       "status": "Finding related products...",
       "memory": {
-        "short_term": "Alex's confirmed products",
+        "short_term": "Chloe's confirmed products",
         "long_term": "Product similarity map",
-        "episodic": "Alex liked travel benefits"
+        "episodic": "Chloe liked travel benefits"
       },
       "t": 2400
     },

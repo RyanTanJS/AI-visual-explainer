@@ -338,7 +338,7 @@ export default function VectorSpace() {
 
   return (
     <div className="w-full h-full relative" ref={containerRef}>
-      <Canvas camera={{ position: [4.5, 3, 4.5], fov: 55 }}>
+      <Canvas camera={{ position: [4.5, 3, 4.5], fov: 59 }}>
         <Scene3D onHover={handleHover} onUnhover={handleUnhover} />
       </Canvas>
 
@@ -380,8 +380,8 @@ export default function VectorSpace() {
         )}
       </AnimatePresence>
 
-      {/* Legend — collapsed on mobile, full on desktop */}
-      <div className="absolute bottom-20 md:bottom-4 right-4 bg-[#1a1d27]/90 rounded-lg p-2 md:p-3 text-[10px] md:text-xs space-y-1.5 md:space-y-2 max-h-[40%] md:max-h-[60%] overflow-y-auto">
+      {/* Legend — top-right on mobile (shifts down when callout showing), bottom-right on desktop */}
+      <div className={`absolute right-2 md:top-auto md:bottom-4 md:right-4 bg-[#1a1d27]/90 rounded-lg p-2 md:p-3 text-[10px] md:text-xs space-y-1.5 md:space-y-2 max-h-[30%] md:max-h-[60%] overflow-y-auto transition-all duration-300 ${hasSearched ? 'top-36' : 'top-2'}`}>
         {Object.entries(CATEGORY_COLORS).map(([cat, catColor]) => {
           const catSubs = {
             'Credit Card': ['Travel', 'Cashback', 'Balance Transfer'],

@@ -141,8 +141,8 @@ function MobileBottomBar() {
         {/* Query bubble */}
         <div className="flex items-start gap-2">
           <div className="flex-1 min-w-0">
-            <p className="text-[10px] text-teal-300 font-semibold mb-0.5">Alex</p>
-            <p className="text-xs text-white/90 line-clamp-2">{query}</p>
+            <p className="text-[10px] text-teal-300 font-semibold mb-0.5">Chloe</p>
+            <p className="text-xs text-white/90 line-clamp-3">{query}</p>
           </div>
 
           {/* Answer preview / expand toggle */}
