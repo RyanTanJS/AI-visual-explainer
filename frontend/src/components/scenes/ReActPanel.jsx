@@ -209,7 +209,7 @@ export default function ReActPanel() {
       <div className="flex-1 overflow-y-auto p-3 md:p-4">
 
         {/* ── MOBILE: stacked layout ── */}
-        <div className="md:hidden flex flex-col gap-3 h-full pb-9">
+        <div className="md:hidden flex flex-col gap-3 h-full pb-13">
           {/* Compact query + stats bar */}
           <div className="flex gap-2 items-start">
             <div className="flex-1 min-w-0 rounded-lg border border-[#ffffff20] bg-[#1a1d27] px-3 py-2">
