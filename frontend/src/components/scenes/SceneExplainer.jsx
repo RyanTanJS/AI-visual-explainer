@@ -6,13 +6,14 @@ const EXPLAINERS = {
     subtitle: 'RAG — Retrieval-Augmented Generation',
     points: [
       {
-        heading: 'Embedding',
-        text: 'Every product document was converted into a 3072-dimensional vector using Google\'s embedding model. These vectors capture the semantic meaning of the text, not just keywords.',
+        heading: 'What is RAG',
+        text: 'A technique used to simulate memory in AI systems. Allows AI systems to have an expanded memory bank that can be easily updated.',
       },
       {
-        heading: 'PCA Reduction',
-        text: 'To visualise the vectors in 3D, we used Principal Component Analysis (PCA) to compress 3072 dimensions down to just 3 — while preserving the relative distances between points.',
+        heading: 'Embedding',
+        text: 'Every product document was converted into a 3072-dimensional vector using Google\'s embedding model. These vectors capture the semantic meaning of the text, not just keywords. For Simplicity we reduce this down to 3 dimensions (maintaining relative distance).',
       },
+      
       {
         heading: 'Similarity Search',
         text: 'The user\'s query was embedded into the same vector space. ChromaDB then found the closest product vectors using cosine similarity — that\'s why "2-3 flights a month" matched travel cards, not the literal words.',
@@ -28,6 +29,10 @@ const EXPLAINERS = {
     title: 'What just happened?',
     subtitle: 'ReAct — Reasoning + Acting',
     points: [
+      {
+        heading: 'What is ReAct',
+        text: 'A way to structure AI systems that allow them to think through problems, similar to how humans do. Breaking down problems into step by step flows and double checking at every step.',
+      },
       {
         heading: 'Think → Act → Observe Loop',
         text: 'Instead of answering in one shot, the agent follows a loop: it thinks about what it needs, calls a tool to get it, reads the result, and decides whether to loop again or answer. This makes responses more reliable and grounded.',
@@ -51,6 +56,10 @@ const EXPLAINERS = {
     title: 'What just happened?',
     subtitle: 'Multi-Agent Orchestration',
     points: [
+      {
+        heading: 'What is Multi-Agent Orchestration?',
+        text: 'Similar to a manager delegating work to specialised employees, a manager assigns other AI agents to work on specific tasks improving overall quality.',
+      },
       {
         heading: 'Router / Orchestrator',
         text: 'A central orchestrator agent analysed the query and decided which specialist agents to invoke. This pattern lets you decompose complex tasks — no single agent needs to know everything.',

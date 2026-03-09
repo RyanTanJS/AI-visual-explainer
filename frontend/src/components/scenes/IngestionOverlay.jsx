@@ -11,12 +11,12 @@ const FAKE_3D = '[0.21, 0.10, 0.02]'
 
 // Chunk highlight colors — distinct enough to tell apart on dark background
 const CHUNK_COLORS = [
-  { bg: 'rgba(251, 191, 36, 0.20)', border: 'rgba(251, 191, 36, 0.5)' },  // amber
-  { bg: 'rgba(52, 211, 153, 0.20)', border: 'rgba(52, 211, 153, 0.5)' },   // emerald
-  { bg: 'rgba(20, 184, 166, 0.20)', border: 'rgba(20, 184, 166, 0.5)' }, // teal
-  { bg: 'rgba(244, 114, 182, 0.20)', border: 'rgba(244, 114, 182, 0.5)' }, // pink
-  { bg: 'rgba(34, 211, 238, 0.20)', border: 'rgba(34, 211, 238, 0.5)' },   // cyan
-  { bg: 'rgba(167, 139, 250, 0.20)', border: 'rgba(167, 139, 250, 0.5)' }, // violet
+  { bg: 'rgba(251, 191, 36, 0.30)', border: 'rgba(251, 191, 36, 0.7)' },   // amber
+  { bg: 'rgba(244, 114, 182, 0.30)', border: 'rgba(244, 114, 182, 0.7)' },  // pink
+  { bg: 'rgba(34, 211, 238, 0.30)', border: 'rgba(34, 211, 238, 0.7)' },    // cyan
+  { bg: 'rgba(167, 139, 250, 0.30)', border: 'rgba(167, 139, 250, 0.7)' },  // violet
+  { bg: 'rgba(52, 211, 153, 0.30)', border: 'rgba(52, 211, 153, 0.7)' },    // emerald
+  { bg: 'rgba(248, 113, 113, 0.30)', border: 'rgba(248, 113, 113, 0.7)' },  // red
 ]
 
 // Split description into sentence chunks for highlight mapping
@@ -197,13 +197,13 @@ const STEP_INFO = {
     title: 'What is Embedding?',
     color: 'emerald',
     content:
-      'Each chunk is passed through Google\'s Gemini embedding model, which outputs a 3072-dimensional vector — a list of 3,072 numbers that encode the chunk\'s semantic meaning. Similar meanings produce similar vectors, even if the words are completely different.',
+      'Each chunk is passed through Google\'s Gemini embedding model, which outputs a 3072-dimensional vector — a list of 3,072 numbers that capture the chunk\'s semantic meaning. Similar meanings produce similar vectors (leading to clustered vectors), even if the words are completely different.',
   },
   place: {
     title: 'Storing & Visualising',
     color: 'teal',
     content:
-      'The vector is stored in ChromaDB, a vector database optimised for similarity search. To visualise it in 3D, PCA (Principal Component Analysis) compresses the 3,072 dimensions down to just 3 while preserving relative distances between points.',
+      'The vector is stored in ChromaDB, a database that is optimised for this function. To visualise it in 3D, PCA (Principal Component Analysis) compresses the 3,072 dimensions down to just 3 while preserving relative distances between points.',
   },
 }
 

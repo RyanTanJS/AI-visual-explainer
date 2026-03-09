@@ -43,7 +43,7 @@ const STEP_EXPLAINERS = {
   action: {
     title: 'What is an Action?',
     content:
-      'An action is a tool call the agent decides to make. Instead of guessing, the agent delegates tasks to specialised tools — like a search engine for information or a calculator for maths.',
+      'An action is a tool call the agent decides to make. Instead of guessing, the agent uses specialised tools — like a search engine for information or a calculator for maths.',
   },
   observation: {
     title: 'What is an Observation?',

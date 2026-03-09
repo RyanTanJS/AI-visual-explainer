@@ -5,7 +5,11 @@ const FAKE_VECTOR = '[0.0412, -0.2091, 0.1184, 0.0334, -0.0770, 0.0567, ..., 0.0
 const FAKE_3D = '[0.21, 0.06, 0.01]'
 
 const CHUNK_COLORS = [
-  { bg: 'rgba(244, 114, 182, 0.20)', border: 'rgba(244, 114, 182, 0.5)' }, // pink (matches query vector color)
+  { bg: 'rgba(244, 114, 182, 0.20)', border: 'rgba(244, 114, 182, 0.5)' },  // pink
+  { bg: 'rgba(167, 139, 250, 0.20)', border: 'rgba(167, 139, 250, 0.5)' },  // violet
+  { bg: 'rgba(34, 211, 238, 0.20)', border: 'rgba(34, 211, 238, 0.5)' },    // cyan
+  { bg: 'rgba(251, 191, 36, 0.20)', border: 'rgba(251, 191, 36, 0.5)' },    // amber
+  { bg: 'rgba(52, 211, 153, 0.20)', border: 'rgba(52, 211, 153, 0.5)' },    // emerald
 ]
 
 function splitSentences(text) {
