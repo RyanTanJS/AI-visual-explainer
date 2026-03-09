@@ -116,7 +116,8 @@ function MobileBottomBar() {
 
   return (
     <div className="absolute bottom-0 left-0 right-0 z-30 bg-[#1a1d27]/95 backdrop-blur-sm
-                    border-t border-[#2a2d3a]">
+                    border-t border-[#2a2d3a]"
+         style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
       {/* Expandable answer area */}
       <AnimatePresence>
         {answerStep && expanded && (

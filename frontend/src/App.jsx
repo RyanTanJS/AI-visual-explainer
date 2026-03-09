@@ -119,7 +119,7 @@ function App() {
   const scene1Done = sceneCompleted[1]
 
   return (
-    <div className="h-screen w-screen overflow-y-auto scroll-smooth bg-[#0f1117]">
+    <div className="h-dvh w-screen overflow-y-auto scroll-smooth bg-[#0f1117]">
       {/* Sticky header */}
       <div className="sticky top-0 z-30">
         <Header />
@@ -129,7 +129,7 @@ function App() {
       <TitleScreen />
 
       {/* Scene 1 */}
-      <section ref={scene1Ref} className="h-[calc(100vh-49px)] flex flex-col relative">
+      <section ref={scene1Ref} className="h-[calc(100dvh-49px)] flex flex-col relative">
         <SceneHeader number={1} title="RAG & Vector Search" active={currentScene === 1} />
         {introPassed && currentScene === 1 ? (
           <div className="flex flex-1 overflow-hidden relative">
@@ -154,7 +154,7 @@ function App() {
           <SceneExplainer sceneId={1} />
 
           {/* Scene 2 */}
-          <section ref={scene2Ref} className="h-[calc(100vh-49px)] flex flex-col relative">
+          <section ref={scene2Ref} className="h-[calc(100dvh-49px)] flex flex-col relative">
             <SceneHeader number={2} title="ReAct & Tool Calling" active={currentScene === 2} />
             {currentScene === 2 ? (
               <div className="flex flex-1 overflow-hidden relative">
@@ -177,7 +177,7 @@ function App() {
               <SceneExplainer sceneId={2} />
 
               {/* Scene 3 */}
-              <section ref={scene3Ref} className="h-[calc(100vh-49px)] flex flex-col relative">
+              <section ref={scene3Ref} className="h-[calc(100dvh-49px)] flex flex-col relative">
                 <SceneHeader number={3} title="Multi-Agent Orchestration" active={currentScene === 3} />
                 {currentScene === 3 ? (
                   <div className="flex flex-1 overflow-hidden relative">

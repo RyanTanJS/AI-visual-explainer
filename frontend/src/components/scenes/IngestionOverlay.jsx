@@ -339,7 +339,8 @@ export default function IngestionOverlay() {
       )}
 
       {/* Action buttons */}
-      <div className="max-w-[340px] pt-2 md:pt-3 border-t border-[#2a2d3a] space-y-2">
+      <div className="max-w-[340px] pt-2 md:pt-3 border-t border-[#2a2d3a] space-y-2"
+           style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
         {isAnimating ? (
           <button
             onClick={advanceIngest}

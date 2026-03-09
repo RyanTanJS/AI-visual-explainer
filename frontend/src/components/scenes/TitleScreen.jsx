@@ -63,7 +63,7 @@ export default function TitleScreen() {
   return (
     <>
       {/* Hero */}
-      <section className="h-screen flex flex-col items-center justify-center relative px-6">
+      <section className="h-dvh flex flex-col items-center justify-center relative px-6">
         {/* 3D grid background */}
         <div className="absolute inset-0 opacity-70 pointer-events-none">
           <Canvas camera={{ position: [4.5, 3, 4.5], fov: 35 }}>
